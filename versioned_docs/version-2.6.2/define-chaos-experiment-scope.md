@@ -60,8 +60,8 @@ When creating the experiment using the YAML file, you need to configure selector
 spec:
   selector:
     expressionSelectors:
-      - { key: tier, operator: In, values: [cache] }
-      - { key: environment, operator: NotIn, values: [dev] }
+      - {key: tier, operator: In, values: [cache]}
+      - {key: environment, operator: NotIn, values: [dev]}
 ```
 
 ### Annotation selectors
@@ -200,15 +200,15 @@ While setting selectors, you can also view the actual scope of the experiment ta
 
 ## Compatibility matrix
 
-| Type                           | Support Kubernetes | Support physical machine |
-| :----------------------------- | :----------------- | :----------------------- |
-| Namespace Selectors            | Yes                | Yes                      |
-| Label Selectors                | Yes                | Yes                      |
-| Expression Selectors           | Yes                | Yes                      |
-| Annotation Selectors           | Yes                | Yes                      |
-| Field Selectors                | Yes                | Yes                      |
-| PodPhase Selectors             | Yes                | No                       |
-| Node Selectors                 | Yes                | No                       |
-| Node List Selectors            | Yes                | No                       |
-| Pod List Selectors             | Yes                | No                       |
-| PhysicalMachine List Selectors | No                 | Yes                      |
+| Type | Support Kubernetes | Support physical machine |
+| :-- | :-- | :-- |
+| Namespace Selectors | Yes | Yes |
+| Label Selectors | Yes | Yes |
+| Expression Selectors | Yes | Yes |
+| Annotation Selectors | Yes | Yes |
+| Field Selectors | Yes | Yes |
+| PodPhase Selectors | Yes | No |
+| Node Selectors | Yes | No |
+| Node List Selectors | Yes | No |
+| Pod List Selectors | Yes | No |
+| PhysicalMachine List Selectors | No | Yes |

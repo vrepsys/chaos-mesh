@@ -2,7 +2,7 @@
 title: Configure namespace for Chaos experiments
 ---
 
-import PickHelmVersion from '@site/src/components/PickHelmVersion'
+import PickHelmVersion from '@site/src/components/PickHelmVersion';
 
 This chapter walks you through how to configure Chaos experiments to only take effect in the specified namespace, and protect other unspecified namespaces against fault injection.
 
