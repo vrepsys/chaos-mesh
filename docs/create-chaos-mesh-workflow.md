@@ -44,9 +44,7 @@ Click **NEW WORKFLOW**.
 
    :::note
 
-   Chaos Dashboard automatically creates a serial node named "entry" as the entry point for this workflow.
-
-   :::
+   Chaos Dashboard automatically creates a serial node named "entry" as the entry point for this workflow. :::
 
    ![Choose Task Type](./img/choose-task-type.png)
 
@@ -175,7 +173,7 @@ It is flexible to create a workflow using a YAML file and `kubectl`. You can nes
 | Parameter | Type | Description | Default value | Required | Example |
 | --- | --- | --- | --- | --- | --- |
 | entry | string | Declares the entry of the workflow. Its value is a name of a template. | None | Yes |  |
-| templates | []Template | Declares the behavior of each step executable in the workflow. See [Template field description](#template-field-description) for details. | None | Yes |  |
+| templates | \[]Template | Declares the behavior of each step executable in the workflow. See [Template field description](#template-field-description) for details. | None | Yes |  |
 
 ### Template field description
 
@@ -184,9 +182,9 @@ It is flexible to create a workflow using a YAML file and `kubectl`. You can nes
 | name | string | The name of the template, which needs to meet the DNS-1123 requirements. | None | Yes | any-name |
 | type | string | Type of template. Value options are Task, Serial, Parallel, Suspend, Schedule, AWSChaos, DNSChaos, GCPChaos, HTTPChaos, IOChaos, JVMChaos, KernelChaos, NetworkChaos, PodChaos, StressChaos, and TimeChaos, StatusCheck. | None | Yes | PodChaos |
 | deadline | string | The duration of the template. | None | No | '5m30s' |
-| children | []string | Declares the subtasks under this template. You need to configure this field when the type is `Serial` or `Parallel`. | None | No | ["any-chaos-1", "another-serial-2", "any-shcedue"] |
+| children | \[]string | Declares the subtasks under this template. You need to configure this field when the type is `Serial` or `Parallel`. | None | No | \["any-chaos-1", "another-serial-2", "any-shcedue"] |
 | task | Task | Configures the customized task. You need to configure this field when the type is `Task`. See the [Task field description](#task-field-description) for details. | None | No |  |
-| conditionalBranches | []ConditionalBranch | Configures the conditional branch which executes after customized task. You need to configure this field when the type is `Task`. See the [Conditional branch field description](#conditionalbranch-field-description) for details. | None | No |  |
+| conditionalBranches | \[]ConditionalBranch | Configures the conditional branch which executes after customized task. You need to configure this field when the type is `Task`. See the [Conditional branch field description](#conditionalbranch-field-description) for details. | None | No |  |
 | awsChaos | object | Configures AWSChaos. You need to configure this field when the type is `AWSChaos`. See the [Simulate AWS Faults](simulate-aws-chaos.md) document for details. | None | No |  |
 | dnsChaos | object | Configures DNSChaos. You need to configure this field when the type is `DNSChaos`. See the [Simulate DNS Faults](simulate-dns-chaos-on-kubernetes.md) document for details. | None | No |  |
 | gcpChaos | object | Configures GCPChaos. You need to configure this field when the type is `GCPChaos`.See the [Simulation GCP Faults](simulate-gcp-chaos.md) document for details. | None | No |  |
@@ -202,11 +200,7 @@ It is flexible to create a workflow using a YAML file and `kubectl`. You can nes
 | statusCheck | object | Configures StatusCheck. You need to configure this field when the type is `StatusCheck`. See the [StatusCheck in Workflow](status-check-in-workflow.md) document for details. | None | No |  |
 | abortWithStatusCheck | bool | Configures whether abort the Workflow when StatusCheck is failed. You can configure this field when the type is `StatusCheck`. | `false` | No | `true` |
 
-:::note
-
-When creating a Chaos with a duration in the workflow, you need to fill the duration in the outer `deadline` field instead of using the `duration` field in Chaos.
-
-:::
+:::note When creating a Chaos with a duration in the workflow, you need to fill the duration in the outer `deadline` field instead of using the `duration` field in Chaos. :::
 
 ### Task field description
 
@@ -239,4 +233,4 @@ The following table only lists the commonly used fields. For the definitions of 
 | --- | --- | --- | --- | --- | --- |
 | name | string | Container name | None | Yes | task |
 | image | string | Image name | None | Yes | busybox:latest |
-| command | []string | Container commands | None | No | `["wget", "-q", "http://httpbin.org/status/201"]` |
+| command | \[]string | Container commands | None | No | `["wget", "-q", "http://httpbin.org/status/201"]` |
