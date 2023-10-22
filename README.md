@@ -1,21 +1,4 @@
-<!-- markdownlint-disable-file MD033 -->
-<!-- markdownlint-disable-file MD041 -->
-
-<p align="center">
-  <img src="logo.svg#gh-light-mode-only" width="512" alt="Chaos Mesh Logo" />
-  <img src="logo-white.svg#gh-dark-mode-only" width="512" alt="Chaos Mesh Logo" />
-</p>
-<h1 align="center">Website</h1>
-<p align="center">
-  Built using <a href="https://v2.docusaurus.io/" target="_blank">Docusaurus 2</a>, a modern static website generator.
-</p>
-
-<a href="https://gitpod.io/#<your-repository-url>">
-  <img
-    src="https://img.shields.io/badge/Contribute%20with-Gitpod-908a85?logo=gitpod"
-    alt="Contribute with Gitpod"
-  />
-</a>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8bf4638d-8f79-4cc4-9970-b47359eb1a35/deploy-status)](https://app.netlify.com/sites/unruffled-blackwell-31bfb2/deploys) [![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-green.svg)](https://conventionalcommits.org)
 
 ## How to develop
 

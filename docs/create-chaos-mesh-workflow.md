@@ -46,7 +46,7 @@ Click **NEW WORKFLOW**.
 
    Chaos Dashboard automatically creates a serial node named "entry" as the entry point for this workflow. :::
 
-   ![Choose Task Type](./img/choose-task-type.png)
+   ![Choose Task Type](./img/choose-task-type.png) :::
 
 2. Fill out the experiment information.
 
@@ -234,3 +234,5 @@ The following table only lists the commonly used fields. For the definitions of 
 | name | string | Container name | None | Yes | task |
 | image | string | Image name | None | Yes | busybox:latest |
 | command | \[]string | Container commands | None | No | `["wget", "-q", "http://httpbin.org/status/201"]` |
+
+:::
