@@ -67,4 +67,4 @@ Your glibc version must be v2.17 or later versions.
 You can use Chaosd in the following modes:
 
 - Command-line mode: Run Chaosd directly as a command-line tool to inject and recover faults.
-- Service mode: Run Chaosd as a service in the background, to inject and recover faults by sending HTTP requests.
+- Service mode: Run Chaosd as a service in the background, to inject and recover faults by sending HTTP requests. Test.
