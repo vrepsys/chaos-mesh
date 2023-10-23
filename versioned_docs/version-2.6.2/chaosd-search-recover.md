@@ -134,5 +134,3 @@ The following example shows how to recover an experiment using the service mode.
     curl -X DELETE 172.16.112.130:31767/api/attack/c3c519bf-819a-4a7b-97fb-e3d0814481fa
     ```
 ````
-
-Test
