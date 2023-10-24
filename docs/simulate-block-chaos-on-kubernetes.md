@@ -89,11 +89,7 @@ It is recommended to use DKMS or akmod for automatic kernel module compiling or 
        latency: 1s
    ```
 
-   :::note
-
-   Only hostpath or localvolume is supported.
-
-   :::
+   :::note Only hostpath or localvolume is supported. :::
 
 2. Use `kubectl` to create an experiment:
 
