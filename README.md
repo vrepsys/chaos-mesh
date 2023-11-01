@@ -2,7 +2,29 @@
 
 ## How to develop
 
-hello
+Hello there, how is everything?
+
+Hey asdf asfsadf
+
+![](/img/Voyager-32-13.jpeg)
+
+---
+
+Additional text
+
+/
+
+---
+
+# asdfasdf
+
+```
+const a = '1'
+```
+
+```mdx-code-block
+asdfs dfsdf
+```
 
 ```sh
 pnpm i # install deps
