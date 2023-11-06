@@ -2,7 +2,27 @@
 
 ## How to develop
 
-Hello there, how is everything?
+Hello there how is it going?
+
+I would like to add **something** `here` as well.
+
+![](/img/editor.png)
+
+Embedded react:
+
+```mdx-code-block
+<Tabs>
+  <TabItem value="apple" label="Apple" default>
+    This is an apple 🍎
+  </TabItem>
+  <TabItem value="orange" label="Orange">
+    This is an orange 🍊
+  </TabItem>
+  <TabItem value="banana" label="Banana">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>
+```
 
 Hey asdf asfsadf
 
