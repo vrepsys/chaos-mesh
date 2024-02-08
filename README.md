@@ -4,6 +4,8 @@
 
 hello
 
+test
+
 ```sh
 pnpm i # install deps
 pnpm start
