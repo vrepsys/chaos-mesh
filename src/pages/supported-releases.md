@@ -1,5 +1,7 @@
 # Supported Releases
 
+hello
+
 This page lists the status, timeline and policies for currently supported releases.
 
 :::info
@@ -29,7 +31,7 @@ Support for kubernetes `1.22` is available starting with version `2.0.4`.
 :::
 
 | Version | Currently Supported | Release Date | End of Life | Supported Kubernetes versions |
-| :-- | :-- | :-- | :-- | :-- |
+| --- | --- | --- | --- | --- |
 | master | No, development only | - | - | 1.20, 1.21, 1.22, 1.23, 1.24, 1.25 |
 | 2.6     | `Yes`                 | May 31, 2023 | -           | 1.20, 1.21, 1.22, 1.23, 1.24, 1.25 |
 | 2.5     | `Yes`                 | Nov 22, 2022 | -           | 1.20, 1.21, 1.22, 1.23, 1.24, 1.25 |
@@ -72,7 +74,7 @@ After testing the compatibility of various versions of Kubernetes clusters throu
 Below are Kubernetes versions covered by each version of the E2E tests:
 
 | Version | Tested kubernetes Versions |
-| :------ | :------------------------- |
+| ------- | -------------------------- |
 | master  | 1.20, 1.23, 1.25           |
 | 2.6     | 1.20, 1.23, 1.25           |
 | 2.5     | 1.20, 1.23, 1.25           |
