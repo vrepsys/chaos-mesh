@@ -16,7 +16,7 @@ title: Check Workflow Status
 
 1. Execute the following command to list the current created workflows in the specified namespace:
 
-   ```shell title="This is a title"
+   ```shell
    kubectl -n <namespace> get workflow
    ```
 

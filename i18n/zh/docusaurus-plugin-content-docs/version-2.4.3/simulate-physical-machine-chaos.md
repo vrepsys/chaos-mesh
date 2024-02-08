@@ -22,7 +22,7 @@ PhysicalMachineChaos 用于在物理机或虚拟机中模拟网络、磁盘、�
 - 有关部署的具体方法，请参考 [Chaosd 的下载和部署](chaosd-overview.md#下载和部署)。
 - 完成部署后，在运行 Chaosd Server **前**，需要先生成 TLS 证书，并在 Kubernetes 集群内创建 `PhysicalMachine`。有关 TLS 证书的生成方式，请参考 [Chaosctl 为 Chaosd 生成证书](chaosctl-tool.md#为-chaosd-生成-tls-证书)。
 
-2. 运行 Chaosd：
+1. 运行 Chaosd：
 
 - 使用 Chaosctl 生成了 TSL 证书文件后，可以运行以下命令，启动服务模式的 Chaosd：
 
@@ -30,11 +30,7 @@ PhysicalMachineChaos 用于在物理机或虚拟机中模拟网络、磁盘、�
   chaosd server --https-port 31768 --CA=/etc/chaosd/pki/ca.crt --cert=/etc/chaosd/pki/chaosd.crt --key=/etc/chaosd/pki/chaosd.key
   ```
 
-  :::note 注意
-
-  使用 Chaosctl 生成的 TLS 证书文件的保存路径为 Chaosctl 的默认输出路径。如果在生成证书时手动指定了其他路径，请手动将命令中的路径替换为对应的文件路径。
-
-  :::
+  :::note 注意使用 Chaosctl 生成的 TLS 证书文件的保存路径为 Chaosctl 的默认输出路径。如果在生成证书时手动指定了其他路径，请手动将命令中的路径替换为对应的文件路径。:::
 
 - 如果没有通过 Chaosctl 配置 TLS 证书，可以运行以下命令，启动服务模式的 Chaosd。但考虑到集群的安全性，**不推荐**使用这个方式：
 
@@ -96,7 +92,7 @@ PhysicalMachineChaos 用于在物理机或虚拟机中模拟网络、磁盘、�
 | 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | `action` | string | 定义物理机故障的行为，可选值为 `stress-cpu`, `stress-mem`, `disk-read-payload`, `disk-write-payload`, `disk-fill`, `network-corrupt`, `network-duplicate`, `network-loss`, `network-delay`, `network-partition`, `network-dns`, `process`, `jvm-exception`, `jvm-gc`, `jvm-latency`, `jvm-return`, `jvm-stress`, `jvm-rule-data`, `clock` | 无 | 是 | `stress-cpu` |
-| `address` | string 数组 | 选择注入故障的 Chaosd 服务地址，`address` 与 `selector` 两者只能选择其中一项 | [] | 是 | ["192.168.0.10:31767"] |
+| `address` | string 数组 | 选择注入故障的 Chaosd 服务地址，`address` 与 `selector` 两者只能选择其中一项 | \[] | 是 | \["192.168.0.10:31767"] |
 | `selector` | struct | 指定注入故障的目标 PhysicalMachine，详情请参考[定义实验范围](define-chaos-experiment-scope.md)，`address` 与 `selector` 两者只能选择其中一项 | 无 | 否 |  |
 | `mode` | string | 指定实验的运行方式，可选择的方式包括：`one`（表示随机选出一个符合条件的 PhysicalMachine）、`all`（表示选出所有符合条件的 PhysicalMachine）、`fixed`（表示选出指定数量且符合条件的 PhysicalMachine）、`fixed-percent`（表示选出占符合条件的 PhysicalMachine 中指定百分比的 PhysicalMachine）、`random-max-percent`（表示选出占符合条件的 PhysicalMachine 中不超过指定百分比的 PhysicalMachine） | 无 | 是 | `one` |
 | `value` | string | 取决与 `mode` 的配置，为 `mode` 提供对应的参数。例如，当你将 `mode` 配置为 `fixed-percent` 时，`value` 用于指定 PhysicalMachine 的百分比 | 无 | 否 | `1` |

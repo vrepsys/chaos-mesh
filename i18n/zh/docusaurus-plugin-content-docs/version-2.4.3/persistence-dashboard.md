@@ -2,7 +2,7 @@
 title: 持久化 Chaos Dashboard 数据
 ---
 
-import PickHelmVersion from '@site/src/components/PickHelmVersion'
+import PickHelmVersion from '@site/src/components/PickHelmVersion';
 
 本文档介绍如何持久化 Chaos Dashboard 数据。
 
@@ -42,18 +42,16 @@ dashboard:
     subPath: ""
 ```
 
-:::warning 注意
-
-如果不配置 PV 的情况下，Chaos Dashboard 发生重启，数据将出现丢失，并且无法找回。
-
-:::
+:::warning 注意如果不配置 PV 的情况下，Chaos Dashboard 发生重启，数据将出现丢失，并且无法找回。:::
 
 ## MySQL
 
-Chaos Dashboard 支持使用 MySQL 5.6 或者更高版本作为后端存储。若想使用 MySQL 作为后端存储，可以在安装的时候设置 `dashboard.env.DATABASE_DRIVER` 和 `dashboard.env.DATABASE_DATASOURCE` 参数，具体参数配置请参考[官方驱动文档(https://github.com/go-sql-driver/mysql#dsn-data-source-name) 。
+Chaos Dashboard 支持使用 MySQL 5.6 或者更高版本作为后端存储。若想使用 MySQL 作为后端存储，可以在安装的时候设置 `dashboard.env.DATABASE_DRIVER` 和 `dashboard.env.DATABASE_DATASOURCE` 参数，具体参数配置请参考\[官方驱动文档([https://github.com/go-sql-driver/mysql#dsn-data-source-name](https://github.com/go-sql-driver/mysql#dsn-data-source-name)) 。
 
 <PickHelmVersion>
-helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version latest --set dashboard.env.DATABASE_DRIVER=mysql --set dashboard.env.DATABASE_DATASOURCE=root:password@tcp(1.2.3.4:3306)/chaos-mesh?parseTime=true
+  helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version latest
+  --set dashboard.env.DATABASE\_DRIVER=mysql --set
+  dashboard.env.DATABASE\_DATASOURCE=root:password\@tcp(1.2.3.4:3306)/chaos-mesh?parseTime=true
 </PickHelmVersion>
 
 ## PostgreSQL
@@ -61,7 +59,9 @@ helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version latest --s
 Chaos Dashboard 支持使用 PostgreSQL 9.6 或者更高版本作为后端存储。若想使用 PostgreSQL 作为后端存储，可以在安装的时候设置 `dashboard.env.DATABASE_DRIVER` 和 `dashboard.env.DATABASE_DATASOURCE` 参数，具体参数配置请参考 [libpq connect](https://github.com/go-sql-driver/mysql#dsn-data-source-name)。
 
 <PickHelmVersion>
-helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version latest --set dashboard.env.DATABASE_DRIVER=postgres --set dashboard.env.DATABASE_DATASOURCE=postgres://root:password@1.2.3.4:5432/postgres?sslmode=disable
+  helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version latest
+  --set dashboard.env.DATABASE\_DRIVER=postgres --set
+  dashboard.env.DATABASE\_DATASOURCE=postgres\://root:password\@1.2.3.4:5432/postgres?sslmode=disable
 </PickHelmVersion>
 
 ## 配置数据过期时间
@@ -69,5 +69,6 @@ helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version latest --s
 Chaos Dashboard 支持配置数据的过期时间，默认 `Event` 相关数据默认 `168h` 过期，`Experiment` 相关数据默认 `336h` 过期，如需要修改，可以设置 `dashboard.env.TTL_EVENT` 和 `dashboard.env.TTL_EXPERIMENT` 参数，如：
 
 <PickHelmVersion>
-helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version latest --set dashboard.env.TTL_EVENT=168h --set dashboard.env.TTL_EXPERIMENT=336h
+  helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version latest
+  --set dashboard.env.TTL\_EVENT=168h --set dashboard.env.TTL\_EXPERIMENT=336h
 </PickHelmVersion>

@@ -2,7 +2,15 @@
 
 ## How to develop
 
-hello
+Test one two three
+
+![](/img/DSC04957.jpeg)
+
+![](/img/archit.png)
+
+![]()![](./docs/img/architecture.png)
+
+![]()
 
 ```sh
 pnpm i # install deps
@@ -16,6 +24,8 @@ By default, the `start` command will only preview documents in English. If you w
 ```sh
 pnpm start --locale zh
 ```
+
+/im
 
 ## Build
 
@@ -34,6 +44,22 @@ pnpm docusaurus docs:version x.x.x
 ```
 
 The versions of the all docs split into two parts, one is the **latest (in `docs/`)** and the others are **versioned (in `versioned_docs/`)**. When a version has been released, the current latest `docs/` will be copied into `versioned_docs/` (by running the command above).
+
+Embedded react:
+
+```
+<Tabs>
+  <TabItem value="apple" label="Apple" default>
+    This is an apple 🍎
+  </TabItem>
+  <TabItem value="orange" label="Orange">
+    This is an orange 🍊
+  </TabItem>
+  <TabItem value="banana" label="Banana">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>
+```
 
 #### i18n
 

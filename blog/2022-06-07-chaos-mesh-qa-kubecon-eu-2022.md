@@ -18,7 +18,7 @@ For the presentations, we gave a brief overview of Chaos Mesh, then delved into 
 
 For Office Hour, we introduced the Chaos Mesh project and its latest progress, and answered online questions from attendees.
 
-Many thanks to each of our friends that came out to support us! And for Office Hour, we received some great questions and we decided to have a follow-up Q&A.
+Many thanks to each of our friends that came out to support us! And for Office Hour, we received some great questions and we decided to have a follow-up Q\&A.
 
 ## Your questions answered
 
@@ -36,7 +36,7 @@ Many thanks to each of our friends that came out to support us! And for Office H
 
 **Q: Is this similar to the Gremlin Chaos engineering tool?**
 
-**A:** Yes, this is a Kubernetes-specific open-source project. It's a Kubernetes plugin that you can utilize. You can get more Infos on https://chaos-mesh.org
+**A:** Yes, this is a Kubernetes-specific open-source project. It's a Kubernetes plugin that you can utilize. You can get more Infos on [https://chaos-mesh.org](https://chaos-mesh.org)
 
 **Q: How does it inject network latency for network chaos? if we use cilium CNI with no iptables, would this latency injection still work in that case?**
 
