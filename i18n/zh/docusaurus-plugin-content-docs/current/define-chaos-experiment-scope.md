@@ -60,8 +60,8 @@ spec:
 spec:
   selector:
     expressionSelectors:
-      - { key: tier, operator: In, values: [cache] }
-      - { key: environment, operator: NotIn, values: [dev] }
+      - {key: tier, operator: In, values: [cache]}
+      - {key: environment, operator: NotIn, values: [dev]}
 ```
 
 ### Annotation Selector

@@ -395,11 +395,11 @@ Global Flags:
 
 相关配置说明如下所示：
 
-| 配置项          | 配置缩写 | 说明                           | 值                                      |
-| :-------------- | :------- | :----------------------------- | :-------------------------------------- |
-| dns-domain-name | H        | 表示影响的域名。               | string 类型，例如："chaos-mesh.org"     |
-| dns-ip          | i        | 表示将影响的域名映射到该地址。 | string 类型，例如 "123.123.123.123"     |
-| dns-server      | 无       | 指定 DNS 服务地址。            | string 类型，默认值为 "123.123.123.123" |
+| 配置项 | 配置缩写 | 说明 | 值 |
+| :-- | :-- | :-- | :-- |
+| dns-domain-name | H | 表示影响的域名。 | string 类型，例如："chaos-mesh.org" |
+| dns-ip | i | 表示将影响的域名映射到该地址。 | string 类型，例如 "123.123.123.123" |
+| dns-server | 无 | 指定 DNS 服务地址。 | string 类型，默认值为 "123.123.123.123" |
 
 #### DNS 故障示例
 
@@ -520,9 +520,11 @@ Global Flags:
 要使用服务模式创建实验，请进行以下操作：
 
 1. 以服务模式运行 chaosd。
+
    ```bash
    chaosd server --port 31767
    ```
+
 2. 向 chaosd 服务的路径 /api/attack/network 发送 HTTP POTST 请求。 `bash curl -X POST 172.16.112.130:31767/api/attack/network -H "Content-Type:application/json" -d '{fault-configuration}' ` 其中 `fault-configuration` 需要按照故障类型进行配置，对应的配置参数请参考下文中各个类型故障的相关参数说明和命令示例。 在运行实验时，请注意保存实验的 uid 信息，当要结束 uid 对应的实验时，需要向 chaosd 服务的路径 /api/attack/{uid} 发送 HTTP DELETE 请求。
 
 ### 使用服务模式模拟网络包错误
@@ -662,12 +664,12 @@ curl -X POST 172.16.112.130:31767/api/attack/network -H "Content-Type:applicatio
 
 相关参数说明如下所示：
 
-| 参数            | 说明                           | 值                                      |
-| :-------------- | :----------------------------- | :-------------------------------------- |
-| action          | 实验的行为                     | 设置为 "dns"                            |
-| dns-domain-name | 表示影响的域名。               | string 类型，例如："chaos-mesh.org"     |
-| dns-ip          | 表示将影响的域名映射到该地址。 | string 类型，例如 "123.123.123.123"     |
-| dns-server      | 指定 DNS 服务地址。            | string 类型，默认值为 "123.123.123.123" |
+| 参数 | 说明 | 值 |
+| :-- | :-- | :-- |
+| action | 实验的行为 | 设置为 "dns" |
+| dns-domain-name | 表示影响的域名。 | string 类型，例如："chaos-mesh.org" |
+| dns-ip | 表示将影响的域名映射到该地址。 | string 类型，例如 "123.123.123.123" |
+| dns-server | 指定 DNS 服务地址。 | string 类型，默认值为 "123.123.123.123" |
 
 #### 使用服务模式模拟 DNS 故障示例
 

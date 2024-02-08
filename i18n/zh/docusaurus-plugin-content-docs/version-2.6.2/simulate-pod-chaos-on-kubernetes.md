@@ -144,7 +144,7 @@ Chaos Mesh 可以向任一 Pod 注入 PodChaos，无论其 Pod 是否绑定至 D
 | mode | string | 指定实验的运行方式，可选择的方式包括：`one`（表示随机选出一个符合条件的 Pod）、`all`（表示选出所有符合条件的 Pod）、`fixed`（表示选出指定数量且符合条件的 Pod）、`fixed-percent`（表示选出占符合条件的 Pod 中指定百分比的 Pod）、`random-max-percent`（表示选出占符合条件的 Pod 中不超过指定百分比的 Pod） | 无 | 是 | `one` |
 | value | string | 取决与 `mode` 的配置，为 `mode` 提供对应的参数。例如，当你将 `mode` 配置为 `fixed-percent` 时，`value` 用于指定 Pod 的百分比。 | 无 | 否 | 1 |
 | selector | struct | 指定注入故障的目标 Pod，详情请参考[定义实验范围](./define-chaos-experiment-scope.md) | 无 | 是 |  |
-| containerNames | []string | 当你将 `action` 配置为 `container-kill` 时，此配置为必填，用于指定注入故障的目标 container 名 | 无 | 否 | ['prometheus'] |
+| containerNames | \[]string | 当你将 `action` 配置为 `container-kill` 时，此配置为必填，用于指定注入故障的目标 container 名 | 无 | 否 | \['prometheus'] |
 | gracePeriod | int64 | 当你将 `action` 配置为 `pod-kill` 时，需要填写此项，用于指定删除 Pod 之前的持续时间 | 0 | 否 | 0 |
 | duration | string | 指定实验的持续时间 | 无 | 是 | 30s |
 

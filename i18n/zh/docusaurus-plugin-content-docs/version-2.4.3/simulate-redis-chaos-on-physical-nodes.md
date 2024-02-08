@@ -333,12 +333,12 @@ curl -X POST 127.0.0.1:31767/api/attack/redis -H "Content-Type:application/json"
 
 #### 模拟缓存穿透相关参数说明
 
-| 参数          | 说明                                                             | 类型     | 值                     |
-| :------------ | :--------------------------------------------------------------- | :------- | :--------------------- |
-| `action`      | 实验的行为                                                       | string   | 设置为 `"penetration"` |
-| `addr`        | 需要注入故障的 Redis 服务器的地址以及端口号，如 `127.0.0.1:6379` | string   | 默认为 `""`            |
-| `password`    | 登录 Redis 服务器的密码                                          | string   | 默认为 `""`            |
-| `request-num` | 指定向 Redis 服务器发送的无效请求数                              | int 类型 | 默认为 `0`             |
+| 参数 | 说明 | 类型 | 值 |
+| :-- | :-- | :-- | :-- |
+| `action` | 实验的行为 | string | 设置为 `"penetration"` |
+| `addr` | 需要注入故障的 Redis 服务器的地址以及端口号，如 `127.0.0.1:6379` | string | 默认为 `""` |
+| `password` | 登录 Redis 服务器的密码 | string | 默认为 `""` |
+| `request-num` | 指定向 Redis 服务器发送的无效请求数 | int 类型 | 默认为 `0` |
 
 #### 服务模式下模拟缓存穿透示例
 
@@ -369,14 +369,14 @@ curl -X POST 127.0.0.1:31767/api/attack/redis -H "Content-Type:application/json"
 
 #### 模拟哨兵不可用相关参数说明
 
-| 参数           | 说明                                                                 | 类型      | 值              |
-| :------------- | :------------------------------------------------------------------- | :-------- | :-------------- |
-| `action`       | 实验的行为                                                           | string    | 设置为 `"stop"` |
-| `addr`         | 需要注入故障的 Redis Sentinel 的地址以及端口号，如 `127.0.0.1:26379` | string    | 默认为 `""`     |
-| `conf`         | 指定哨兵的配置文件路径，用于恢复哨兵                                 | string    | 默认为 `""`     |
-| `flush-config` | 指定在哨兵重启前，是否将内存中的配置更新到配置文件中                 | bool 类型 | 默认为 `true`   |
-| `password`     | 登录 Redis Sentinel 的密码                                           | string    | 默认为 `""`     |
-| `redis-path`   | 指定 `redis-server` 命令的路径                                       | string    | 默认为 `""`     |
+| 参数 | 说明 | 类型 | 值 |
+| :-- | :-- | :-- | :-- |
+| `action` | 实验的行为 | string | 设置为 `"stop"` |
+| `addr` | 需要注入故障的 Redis Sentinel 的地址以及端口号，如 `127.0.0.1:26379` | string | 默认为 `""` |
+| `conf` | 指定哨兵的配置文件路径，用于恢复哨兵 | string | 默认为 `""` |
+| `flush-config` | 指定在哨兵重启前，是否将内存中的配置更新到配置文件中 | bool 类型 | 默认为 `true` |
+| `password` | 登录 Redis Sentinel 的密码 | string | 默认为 `""` |
+| `redis-path` | 指定 `redis-server` 命令的路径 | string | 默认为 `""` |
 
 #### 服务模式下模拟哨兵不可用示例
 

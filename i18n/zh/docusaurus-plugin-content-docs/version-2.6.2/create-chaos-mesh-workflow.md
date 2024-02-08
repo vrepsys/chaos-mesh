@@ -44,9 +44,7 @@ Github 仓库中含有其他工作流的[示例](https://github.com/chaos-mesh/c
 
    :::note 注意
 
-   Chaos Dashboard 会自动创建一个命名为 "entry" 的串行节点，作其用为该工作流的入口。
-
-   :::
+   Chaos Dashboard 会自动创建一个命名为 "entry" 的串行节点，作其用为该工作流的入口。:::
 
    ![Choose Task Type](./img/choose-task-type.png)
 
@@ -175,7 +173,7 @@ podChaos:
 | 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
 | --- | --- | --- | --- | --- | --- |
 | entry | string | 声明工作流的入口，值为 templates 中某一 template 的名称。 | 无 | 是 |  |
-| templates | []Template | 声明工作流中可执行的各个步骤的行为，详见 [Template 字段说明](#template-字段说明) | 无 | 是 |  |
+| templates | \[]Template | 声明工作流中可执行的各个步骤的行为，详见 [Template 字段说明](#template-字段说明) | 无 | 是 |  |
 
 ### Template 字段说明
 
@@ -184,9 +182,9 @@ podChaos:
 | name | string | template 的名称，需要符合 DNS-1123 命名规范。 | 无 | 是 | any-name |
 | type | string | template 的类型。可选值有: Task、Serial、Parallel、Suspend、Schedule、AWSChaos、DNSChaos、GCPChaos、HTTPChaos、IOChaos、JVMChaos、KernelChaos、NetworkChaos、PodChaos、StressChaos、TimeChaos、StatusCheck | 无 | 是 | PodChaos |
 | deadline | string | template 持续的时间。 | 无 | 否 | '5m30s' |
-| children | []string | 声明该 template 下的子任务，当 type 为 Serial 或 Parallel 时需要配置该字段。 | 无 | 否 | ["any-chaos-1", "another-serial-2", "any-shcedule"] |
+| children | \[]string | 声明该 template 下的子任务，当 type 为 Serial 或 Parallel 时需要配置该字段。 | 无 | 否 | \["any-chaos-1", "another-serial-2", "any-shcedule"] |
 | task | Task | 配置自定义任务，当 type 为 Task 时需要配置该字段。详见 [Task 字段说明](#task-字段说明) | 无 | 否 |  |
-| conditionalBranches | []ConditionalBranch | 配置自定任务后的条件分支，当 type 为 Task 时可选配置该字段。详见 [ConditionalBranch 字段说明](#conditionalbranch-字段说明) | 无 | 否 |  |
+| conditionalBranches | \[]ConditionalBranch | 配置自定任务后的条件分支，当 type 为 Task 时可选配置该字段。详见 [ConditionalBranch 字段说明](#conditionalbranch-字段说明) | 无 | 否 |  |
 | awsChaos | object | 配置 AWSChaos，当 type 为 AWSChaos 时需要配置该字段。详见 [模拟 AWS 故障](simulate-aws-chaos.md) | 无 | 否 |  |
 | dnsChaos | object | 配置 DNSChaos，当 type 为 DNSChaos 时需要配置该字段。详见 [模拟 DNS 故障](simulate-dns-chaos-on-kubernetes.md) | 无 | 否 |  |
 | gcpChaos | object | 配置 GCPChaos，当 type 为 GCPChaos，当 时需要配置该字段。详见 [模拟 GCP 故障](simulate-gcp-chaos.md) | 无 | 否 |  |
@@ -202,11 +200,7 @@ podChaos:
 | statusCheck | object | 配置 StatusCheck，当 type 为 StatusCheck 时需要配置该字段。详见 [在工作流中进行状态检查](status-check-in-workflow.md) | 无 | 否 |  |
 | abortWithStatusCheck | bool | 配置当 StatusCheck 失败时是否终止工作流，当 type 为 StatusCheck 时可选配置该字段。 | `false` | 否 | `true` |
 
-:::note 注意
-
-当在工作流中建立有持续时间的 Chaos 时，需要将持续时间填写到外层的 `deadline` 字段中，而不是使用 Chaos 中的 `duration` 字段。
-
-:::
+:::note 注意当在工作流中建立有持续时间的 Chaos 时，需要将持续时间填写到外层的 `deadline` 字段中，而不是使用 Chaos 中的 `duration` 字段。:::
 
 ### Task 字段说明
 
@@ -235,8 +229,8 @@ podChaos:
 
 这里只列举了常用字段，关于完整定义可参考 [corev1.Container](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#container-v1-core)
 
-| 参数    | 类型     | 说明           | 默认值 | 是否必填 | 示例                                              |
-| ------- | -------- | -------------- | ------ | -------- | ------------------------------------------------- |
-| name    | string   | 容器名称       | 无     | 是       | task                                              |
-| image   | string   | 镜像名称       | 无     | 是       | busybox:latest                                    |
-| command | []string | 容器执行的命令 | 无     | 否       | `["wget", "-q", "http://httpbin.org/status/201"]` |
+| 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
+| --- | --- | --- | --- | --- | --- |
+| name | string | 容器名称 | 无 | 是 | task |
+| image | string | 镜像名称 | 无 | 是 | busybox:latest |
+| command | \[]string | 容器执行的命令 | 无 | 否 | `["wget", "-q", "http://httpbin.org/status/201"]` |
