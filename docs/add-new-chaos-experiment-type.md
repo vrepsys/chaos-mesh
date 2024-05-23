@@ -2,11 +2,11 @@
 title: Add a New Chaos Experiment Type
 ---
 
-import PickHelmVersion from '@site/src/components/PickHelmVersion'
+import PickHelmVersion from '@site/src/components/PickHelmVersion';
 
 This document describes how to add a new chaos experiment type.
 
-The following walks you through an example of `HelloWorldChaos`, a new chaos experiment type that prints `Hello world!` to the log. The steps include:
+The following walks you through an example of `HelloWorldChaos`, a new chaos experiment type that prints `Hello world!` to the log. The steps include: asdf
 
 - [Step 1: Define the schema of HelloWorldChaos](#step-1-define-the-schema-of-helloworldchaos)
 - [Step 2: Register the CRD](#step-2-register-the-crd)
