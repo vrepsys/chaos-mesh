@@ -8,6 +8,10 @@ This document describes how to add a new chaos experiment type.
 
 The following walks you through an example of `HelloWorldChaos`, a new chaos experiment type that prints `Hello world!` to the log. The steps include: asdf
 
+A change
+
+![](./img/7.png)
+
 - [Step 1: Define the schema of HelloWorldChaos](#step-1-define-the-schema-of-helloworldchaos)
 - [Step 2: Register the CRD](#step-2-register-the-crd)
 - [Step 3: Register the event handler for helloworld objects](#step-3-register-the-event-handler-for-helloworldchaos-objects)
