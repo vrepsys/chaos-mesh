@@ -35,14 +35,14 @@ Global Flags:
 
 #### Configuration description
 
-| Configuration item | Abbreviation | Description | Type |
-| :-- | :-- | :-- | :-- |
-| `all` | A | Lists all experiments | bool |
-| `asc` | None | Sorts the experiments in ascending order of the creation time. The default value is `false`. | bool |
-| `kind` | k | Lists experiments of the specified kind | string. The supported kinds are as follows: `network`, `process`, `stress`, `disk`, `host`, `jvm` |
-| `limit` | l | The number of listed experiments | int |
-| `offset` | o | Searches from the specified offset | int |
-| `status` | s | Lists experiments with the specified status | string. The supported types are as follows: `created`, `success`, `error`, `destroyed`, `revoked` |
+| Configuration item | Abbreviation | Description                                                                                  | Type                                                                                              |
+| ------------------ | ------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `all`              | A            | Lists all experiments                                                                        | bool                                                                                              |
+| `asc`              | None         | Sorts the experiments in ascending order of the creation time. The default value is `false`. | bool                                                                                              |
+| `kind`             | k            | Lists experiments of the specified kind                                                      | string. The supported kinds are as follows: `network`, `process`, `stress`, `disk`, `host`, `jvm` |
+| `limit`            | l            | The number of listed experiments                                                             | int                                                                                               |
+| `offset`           | o            | Searches from the specified offset                                                           | int                                                                                               |
+| `status`           | s            | Lists experiments with the specified status                                                  | string. The supported types are as follows: `created`, `success`, `error`, `destroyed`, `revoked` |
 
 #### Example
 

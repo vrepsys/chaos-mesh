@@ -33,9 +33,9 @@ stringData:
 
 - **name** 表示 Kubernetes Secret 对象的名字。
 - **namespace** 表示 Kubernetes Secret 对象的命名空间。
-- **client_id** 存储 Azure 应用注册的应用程序（客户端）ID。
-- **client_secret** 存储 Azure 应用注册的应用程序（客户端）的机密值。
-- **tenant_id** 存储 Azure 应用注册的目录（租户）ID。 `client_id` 及 `client_secret` 的获取请参考[机密客户端应用程序](https://docs.microsoft.com/zh-cn/azure/healthcare-apis/azure-api-for-fhir/register-confidential-azure-ad-client-app)。
+- **client\_id** 存储 Azure 应用注册的应用程序（客户端）ID。
+- **client\_secret** 存储 Azure 应用注册的应用程序（客户端）的机密值。
+- **tenant\_id** 存储 Azure 应用注册的目录（租户）ID。 `client_id` 及 `client_secret` 的获取请参考[机密客户端应用程序](https://docs.microsoft.com/zh-cn/azure/healthcare-apis/azure-api-for-fhir/register-confidential-azure-ad-client-app)。
 
 :::note 注意
 
@@ -149,15 +149,15 @@ stringData:
 
 下表介绍以上 YAML 配置文件中的字段。
 
-| 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
-| --- | --- | --- | --- | --- | --- |
-| action | string | 表示具体的故障类型，仅支持 `vm-stop`、`vm-restart`、`disk-detach` | `vm-stop` | 是 | `vm-stop` |
-| mode | string | 指定实验的运行方式，可选择的方式包括：`one`（表示随机选出一个符合条件的 Pod）、`all`（表示选出所有符合条件的 Pod）、`fixed`（表示选出指定数量且符合条件的 Pod）、`fixed-percent`（表示选出占符合条件的 Pod 中指定百分比的 Pod）、`random-max-percent`（表示选出占符合条件的 Pod 中不超过指定百分比的 Pod） | 无 | 是 | `one` |
-| value | string | 取决与 `mode` 的配置，为 `mode` 提供对应的参数。例如，当你将 `mode` 配置为 `fixed-percent` 时，`value` 用于指定 Pod 的百分比。 | 无 | 否 | `1` |
-| secretName | string | 指定存储 Azure 认证信息的 Kubernetes Secret 名字 | 无 | 否 | `cloud-key-secret` |
-| subscriptionID | string | 指定 VM 实例的订阅 ID | 无 | 是 | `your-subscription-id` |
-| resourceGroupName | string | 指定 VM 实例所属的资源组的名称 | 无 | 是 | `your-resource-group-name` |
-| vmName | string | 指定 VM 的名称 | N/A | Yes | `your-vm-name` |
-| diskName | string | 当 action 为 `disk-detach` 时必填，指定设备名 | 无 | 否 | `DATADISK_0` |
-| lun | string | 当 action 为 `disk-detach` 时必填，指定硬盘的 LUN (Logic Unit Number) | 无 | 否 | `0` |
-| duration | string | 指定实验的持续时间 | 无 | 是 | `30s` |
+| 参数                | 类型     | 说明                                                                                                                                                                                             | 默认值       | 是否必填 | 示例                         |
+| ----------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ---- | -------------------------- |
+| action            | string | 表示具体的故障类型，仅支持 `vm-stop`、`vm-restart`、`disk-detach`                                                                                                                                             | `vm-stop` | 是    | `vm-stop`                  |
+| mode              | string | 指定实验的运行方式，可选择的方式包括：`one`（表示随机选出一个符合条件的 Pod）、`all`（表示选出所有符合条件的 Pod）、`fixed`（表示选出指定数量且符合条件的 Pod）、`fixed-percent`（表示选出占符合条件的 Pod 中指定百分比的 Pod）、`random-max-percent`（表示选出占符合条件的 Pod 中不超过指定百分比的 Pod） | 无         | 是    | `one`                      |
+| value             | string | 取决与 `mode` 的配置，为 `mode` 提供对应的参数。例如，当你将 `mode` 配置为 `fixed-percent` 时，`value` 用于指定 Pod 的百分比。                                                                                                     | 无         | 否    | `1`                        |
+| secretName        | string | 指定存储 Azure 认证信息的 Kubernetes Secret 名字                                                                                                                                                          | 无         | 否    | `cloud-key-secret`         |
+| subscriptionID    | string | 指定 VM 实例的订阅 ID                                                                                                                                                                                 | 无         | 是    | `your-subscription-id`     |
+| resourceGroupName | string | 指定 VM 实例所属的资源组的名称                                                                                                                                                                              | 无         | 是    | `your-resource-group-name` |
+| vmName            | string | 指定 VM 的名称                                                                                                                                                                                      | N/A       | Yes  | `your-vm-name`             |
+| diskName          | string | 当 action 为 `disk-detach` 时必填，指定设备名                                                                                                                                                             | 无         | 否    | `DATADISK_0`               |
+| lun               | string | 当 action 为 `disk-detach` 时必填，指定硬盘的 LUN (Logic Unit Number)                                                                                                                                     | 无         | 否    | `0`                        |
+| duration          | string | 指定实验的持续时间                                                                                                                                                                                      | 无         | 是    | `30s`                      |

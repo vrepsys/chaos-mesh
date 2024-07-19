@@ -86,22 +86,27 @@ for i in $(kubectl api-resources | grep chaos-mesh | awk '{print $1}'); do kubec
 Chaos Mesh 会安装多个 RBAC 对象：
 
 - ClusterRoleBinding
+
   - chaos-mesh-playground-chaos-controller-manager-cluster-level
   - chaos-mesh-playground-chaos-controller-manager-target-namespace
   - chaos-mesh-playground-chaos-dns-server-cluster-level
   - chaos-mesh-playground-chaos-dns-server-target-namespace
 - ClusterRole
+
   - chaos-mesh-playground-chaos-controller-manager-cluster-level
   - chaos-mesh-playground-chaos-controller-manager-target-namespace
   - chaos-mesh-playground-chaos-dns-server
   - chaos-mesh-playground-chaos-dns-server-cluster-level
 - RoleBinding
+
   - chaos-mesh-playground-chaos-controller-manager-control-plane
   - chaos-mesh-playground-chaos-dns-server-control-plane
 - Role
+
   - chaos-mesh-playground-chaos-controller-manager-control-plane
   - chaos-mesh-playground-chaos-dns-server-control-plane
 - ServiceAccount
+
   - chaos-controller-manager
   - chaos-daemon
   - chaos-dns-server
@@ -113,9 +118,11 @@ Chaos Mesh 会安装多个 RBAC 对象：
 Chaos Mesh 会安装多个 ConfigMaps 和 Secrets：
 
 - ConfigMap
+
   - chaos-mesh
   - dns-server-config
 - Secret
+
   - chaos-mesh-webhook-certs
 
 你应该删除这些 ConfigMaps 和 Secrets 对象。
@@ -125,9 +132,11 @@ Chaos Mesh 会安装多个 ConfigMaps 和 Secrets：
 Chaos Mesh 会安装多个 Webhook：
 
 - ValidatingWebhookConfigurations
+
   - chaos-mesh-validation
   - chaos-mesh-validate-auth
 - MutatingWebhookConfigurations
+
   - chaos-mesh-mutation
 
 你应该删除这些 Webhooks。

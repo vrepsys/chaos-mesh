@@ -7,15 +7,13 @@ This document describes how to use KernelChaos to simulate Linux kernel faults. 
 Although you can set the injection target of KernelChaos to one or several Pods, the performance of other Pods on the host will be affected, because all Pods share the same kernel.
 
 :::warning
-
 The simulation of Linux kernel faults is disabled by default. Do not use this feature in a production environment.
-
 :::
 
 ## Prerequisites
 
 - Linux kernel version >= 4.18.
-- The Linux kernel configuration [CONFOG_BPF_KPROBE_OVERRIDE](https://cateee.net/lkddb/web-lkddb/BPF_KPROBE_OVERRIDE.html) is enabled.
+- The Linux kernel configuration [CONFOG\_BPF\_KPROBE\_OVERRIDE](https://cateee.net/lkddb/web-lkddb/BPF_KPROBE_OVERRIDE.html) is enabled.
 - The `bpfki.create` configuration value in [values.yaml](https://github.com/chaos-mesh/chaos-mesh/blob/master/helm/chaos-mesh/values.yaml) is `true`.
 
 ## Configuration file
@@ -52,15 +50,16 @@ Configuration description:
   - `random-max-percent`: selects the maximum percentage of eligible Pods.
 
 - **selector** specifies the target Pod for fault injection.
+
 - **FailedkernRequest** specifies the fault mode (such as kmallo and bio). It also specifies a specific call chain path and the optional filtering conditions. The configuration items are as follows:
 
   - **Failtype** specifies the fault type. The value options are as follows:
 
-    - '0': injects the slab allocation error should_failslab.
-    - '1': injects the memory page allocation error should_fail_alloc_page.
-    - '2': injects the bio error should_fail_bio.
+    - '0': injects the slab allocation error should\_failslab.
+    - '1': injects the memory page allocation error should\_fail\_alloc\_page.
+    - '2': injects the bio error should\_fail\_bio.
 
-    For more information on these three fault types, refer to [fault-injection](https://www.kernel.org/doc/html/latest/fault-injection/fault-injection.html) and [inject_example](http://github.com/iovisor/bcc/blob/master/tools/inject_example.txt).
+    For more information on these three fault types, refer to [fault-injection](https://www.kernel.org/doc/html/latest/fault-injection/fault-injection.html) and [inject\_example](http://github.com/iovisor/bcc/blob/master/tools/inject_example.txt).
 
   - **Callchain** specifies a specific call chain. For example:
 
@@ -80,7 +79,9 @@ Configuration description:
     - **predicate**, which is used to access the parameters of the frame array. Taking **parameters** as an example, you can set it to `STRNCMP(name->name, "bananas", 8)` to control the path of fault injection, or you can leave it empty for all call paths that execute `d_allo_parallel` receive the slab fault injection.
 
   - **headers** specifies the kernel header file you need. For example, "linux/mmzone.h" and "linux/blkdev.h".
+
   - **probability** specifies the probability of faults. If you want the probability of 1%, set to '1'.
+
   - **times** specifies the maximum number of times a fault is triggered.
 
 ## Create an experiment using kubectl
@@ -91,7 +92,7 @@ Use `kubectl` to create an experiment:
 kubectl apply -f KernelChaos
 ```
 
-The KernelChaos feature is similar to [inject.py](https://github.com/iovisor/bcc/blob/master/tools/inject.py). For more information, refer to [input_example.txt](https://github.com/iovisor/bcc/blob/master/tools/inject_example.txt).
+The KernelChaos feature is similar to [inject.py](https://github.com/iovisor/bcc/blob/master/tools/inject.py). For more information, refer to [input\_example.txt](https://github.com/iovisor/bcc/blob/master/tools/inject_example.txt).
 
 A simple example is as follows:
 
@@ -134,6 +135,6 @@ During the fault injection, the output is as follows:
 
 ## Usage restriction
 
-You can use container_id to limit the scope of the fault injection, but some paths trigger system-level behaviors. For example:
+You can use container\_id to limit the scope of the fault injection, but some paths trigger system-level behaviors. For example:
 
 When `failtype` is `1`, it means that the physical page allocation fails. If this event is frequently triggered within a short period of time (for example, `while (1) {memset(malloc(1M), '1', 1M)}`), the oom-killer system call is triggered to recycle memory.

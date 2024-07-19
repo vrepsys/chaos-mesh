@@ -31,7 +31,7 @@ stringData:
 
 - **name** 表示 Kubernetes Secret 对象的名字。
 - **namespace** 表示 Kubernetes Secret 对象的命名空间。
-- **service_account** 存储 GCP 集群的服务账号密钥。请注意，你需要对 GCP 集群的服务账号密钥进行 [Base64](https://zh.wikipedia.org/wiki/Base64) 编码。如需了解 GCP 服务账号密钥详情，请参阅[创建和管理服务帐号密钥](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)。
+- **service\_account** 存储 GCP 集群的服务账号密钥。请注意，你需要对 GCP 集群的服务账号密钥进行 [Base64](https://zh.wikipedia.org/wiki/Base64) 编码。如需了解 GCP 服务账号密钥详情，请参阅[创建和管理服务帐号密钥](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)。
 
 ## 使用 Dashboard 方式创建实验
 
@@ -160,14 +160,14 @@ stringData:
 
 下表介绍以上 YAML 配置文件中的字段。
 
-| 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
-| --- | --- | --- | --- | --- | --- |
-| action | string | 指定故障类型，可选择的类型包括：node-stop、node-reset、disk-loss | node-stop | 是 | node-stop |
-| mode | string | 指定实验的运行方式，可选择的方式包括：`one`（表示随机选出一个符合条件的 Pod）、`all`（表示选出所有符合条件的 Pod）、`fixed`（表示选出指定数量且符合条件的 Pod）、`fixed-percent`（表示选出占符合条件的 Pod 中指定百分比的 Pod）、`random-max-percent`（表示选出占符合条件的 Pod 中不超过指定百分比的 Pod） | 无 | 是 | `one` |
-| value | string | 取决与 `mode` 的配置，为 `mode` 提供对应的参数。例如，当你将 `mode` 配置为 `fixed-percent` 时，`value` 用于指定 Pod 的百分比。 | 无 | 否 | 1 |
-| secretName | string | 指定存储 GCP 认证信息的 Kubernetes Secret 名字 | 无 | 否 | cloud-key-secret |
-| project | string | 指定 GCP 项目的 ID | 无 | 是 | real-testing-project |
-| zone | string | 指定 GCP 实例区域 | 无 | 是 | us-central1-a |
-| instance | string | 指定 GCP 实例的名称 | 无 | 是 | gke-xxx-cluster--default-pool-xxx-yyy |
-| deviceNames | []string | 当 action 为 disk-loss 必填，指定设备磁盘 ID | 无 | 否 | ["your-disk-id"] |
-| duration | string | 指定实验的持续时间 | 无 | 是 | 30s |
+| 参数          | 类型        | 说明                                                                                                                                                                                             | 默认值       | 是否必填 | 示例                                    |
+| ----------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ---- | ------------------------------------- |
+| action      | string    | 指定故障类型，可选择的类型包括：node-stop、node-reset、disk-loss                                                                                                                                                 | node-stop | 是    | node-stop                             |
+| mode        | string    | 指定实验的运行方式，可选择的方式包括：`one`（表示随机选出一个符合条件的 Pod）、`all`（表示选出所有符合条件的 Pod）、`fixed`（表示选出指定数量且符合条件的 Pod）、`fixed-percent`（表示选出占符合条件的 Pod 中指定百分比的 Pod）、`random-max-percent`（表示选出占符合条件的 Pod 中不超过指定百分比的 Pod） | 无         | 是    | `one`                                 |
+| value       | string    | 取决与 `mode` 的配置，为 `mode` 提供对应的参数。例如，当你将 `mode` 配置为 `fixed-percent` 时，`value` 用于指定 Pod 的百分比。                                                                                                     | 无         | 否    | 1                                     |
+| secretName  | string    | 指定存储 GCP 认证信息的 Kubernetes Secret 名字                                                                                                                                                            | 无         | 否    | cloud-key-secret                      |
+| project     | string    | 指定 GCP 项目的 ID                                                                                                                                                                                  | 无         | 是    | real-testing-project                  |
+| zone        | string    | 指定 GCP 实例区域                                                                                                                                                                                    | 无         | 是    | us-central1-a                         |
+| instance    | string    | 指定 GCP 实例的名称                                                                                                                                                                                   | 无         | 是    | gke-xxx-cluster--default-pool-xxx-yyy |
+| deviceNames | \[]string | 当 action 为 disk-loss 必填，指定设备磁盘 ID                                                                                                                                                              | 无         | 否    | \["your-disk-id"]                     |
+| duration    | string    | 指定实验的持续时间                                                                                                                                                                                      | 无         | 是    | 30s                                   |

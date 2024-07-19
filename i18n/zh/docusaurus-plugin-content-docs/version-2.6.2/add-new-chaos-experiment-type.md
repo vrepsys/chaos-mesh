@@ -252,9 +252,7 @@ title: 新增混沌实验类型
    ```
 
    :::note 注意
-
    `--set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock` 是用来在 kind 上运行 NetworkChaos 的。
-
    :::
 
 3. 部署用于测试的目标 Pod：
@@ -305,9 +303,7 @@ title: 新增混沌实验类型
    ```
 
    :::note 注意
-
    `{pod-post-fix}` 是一个随机串。你可以运行 `kubectl get pod -n chaos-mesh` 来查看它。
-
    :::
 
 ## 探索更多

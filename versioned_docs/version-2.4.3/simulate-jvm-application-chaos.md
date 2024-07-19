@@ -29,7 +29,7 @@ Your Linux kernel must be v4.1 or later.
 
    ![JVMChaos experiments](./img/jvmchaos-exp.png)
 
-   For information about how to fill out the configurations, refer to [Field Description] (#field-description).
+   For information about how to fill out the configurations, refer to \[Field Description] (#field-description).
 
 3. Fill out the experiment information, and specify the experiment scope and the scheduled experiment duration.
 
@@ -158,71 +158,66 @@ You can see that `helloworld` outputs a line of `Hello World` every second, and 
 
 ## Field description
 
-| Parameter | Type | Description | Default value | Required | Example |
-| --- | --- | --- | --- | --- | --- |
-| `action` | string | Indicates the specific fault type. The available fault types include `latency`, `return`, `exception`, `stress`, `gc`, and `ruleData`. | None | Yes | return |
-| `mode` | string | Indicates how to select Pod. The supported modes include `one`, `all`, `fixed`, `fixed-percent`, and `random-max-percent`. | None | Yes | `one` |
+| Parameter | Type   | Description                                                                                                                            | Default value | Required | Example |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | ------- |
+| `action`  | string | Indicates the specific fault type. The available fault types include `latency`, `return`, `exception`, `stress`, `gc`, and `ruleData`. | None          | Yes      | return  |
+| `mode`    | string | Indicates how to select Pod. The supported modes include `one`, `all`, `fixed`, `fixed-percent`, and `random-max-percent`.             | None          | Yes      | `one`   |
 
 The meanings of the different `action` values are as follows:
 
-| Value | Meaning |
-| --- | --- |
-| `latency` | Increase method latency |
-| `return` | Modify return values of a method |
-| `exception` | Throw custom exceptions |
-| `stress` | Increase CPU usage of Java process, or cause memory overflow (support heap overflow and stack overflow) |
-| `gc` | Trigger garbage collection |
-| `ruleData` | Trigger faults by setting Byteman configuration files |
+| Value       | Meaning                                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------------------- |
+| `latency`   | Increase method latency                                                                                 |
+| `return`    | Modify return values of a method                                                                        |
+| `exception` | Throw custom exceptions                                                                                 |
+| `stress`    | Increase CPU usage of Java process, or cause memory overflow (support heap overflow and stack overflow) |
+| `gc`        | Trigger garbage collection                                                                              |
+| `ruleData`  | Trigger faults by setting Byteman configuration files                                                   |
 
 For different `action` values, there are different configuration items that can be filled in.
 
 ### Parameters for `latency`
 
-| Parameter | Type | Description | Required |
-| --- | --- | --- | --- |
-| `class` | string | The name of the Java class | Yes |
-| `method` | string | The name of the method | Yes |
-| `latency` | int | The duration of increasing method latency. The unit is milisecond. | Yes |
-| `port` | int | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No |
+| Parameter | Type   | Description                                                                                                    | Required |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------- | -------- |
+| `class`   | string | The name of the Java class                                                                                     | Yes      |
+| `method`  | string | The name of the method                                                                                         | Yes      |
+| `latency` | int    | The duration of increasing method latency. The unit is milisecond.                                             | Yes      |
+| `port`    | int    | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No       |
 
 ### Parameters for `return`
 
-| Parameter | Type | Description | Required |
-| --- | --- | --- | --- | --- |
-| `class` | string | The name of the Java class | Yes |
-| `method` | string | The name of the method | Yes |
-| `value` | string | Specifies the return value of the method | string type, required. Currently, the item can be numeric and string types. If the item (return value) is string, double quotes are required, like "chaos". | Yes |
-| `port` | int | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No |
+\| Parameter | Type | Description | Required | | --- | --- | --- | --- | --- | | `class` | string | The name of the Java class | Yes | | `method` | string | The name of the method | Yes | | `value` | string | Specifies the return value of the method | string type, required. Currently, the item can be numeric and string types. If the item (return value) is string, double quotes are required, like "chaos". | Yes | | `port` | int | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No |
 
 ### Parameters for `exception`
 
-| Parameter | Type | Description | Required |
-| --- | --- | --- | --- |
-| `class` | string | The name of the Java class | Yes |
-| `method` | string | The name of the method | Yes |
-| `exception` | string | The thrown custom exception, such as 'java.io.IOException("BOOM")'. | Yes |
-| `port` | int | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No |
+| Parameter   | Type   | Description                                                                                                    | Required |
+| ----------- | ------ | -------------------------------------------------------------------------------------------------------------- | -------- |
+| `class`     | string | The name of the Java class                                                                                     | Yes      |
+| `method`    | string | The name of the method                                                                                         | Yes      |
+| `exception` | string | The thrown custom exception, such as 'java.io.IOException("BOOM")'.                                            | Yes      |
+| `port`      | int    | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No       |
 
 ### Parameters for `stress`
 
-| Parameter | Type | Description | Required |
-| --- | --- | --- | --- |
-| `cpuCount` | int | The number of CPU cores used for increasing CPU stress. You must configure one item between `cpu-count` and `mem-type`. | No |
-| `memType` | string | The type of OOM. Currently, both 'stack' and 'heap' OOM types are supported. You must configure one item between `cpu-count` and `mem-type`. | No |
-| `port` | int | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No |
+| Parameter  | Type   | Description                                                                                                                                  | Required |
+| ---------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `cpuCount` | int    | The number of CPU cores used for increasing CPU stress. You must configure one item between `cpu-count` and `mem-type`.                      | No       |
+| `memType`  | string | The type of OOM. Currently, both 'stack' and 'heap' OOM types are supported. You must configure one item between `cpu-count` and `mem-type`. | No       |
+| `port`     | int    | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID.                               | No       |
 
 ### Parameters for `gc`
 
-| Parameter | Type | Description | Required |
-| --- | --- | --- | --- |
-| `port` | int | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No |
+| Parameter | Type | Description                                                                                                    | Required |
+| --------- | ---- | -------------------------------------------------------------------------------------------------------------- | -------- |
+| `port`    | int  | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No       |
 
 ### Parameters for `ruleData`
 
-| Parameter | Type | Description | Required |
-| --- | --- | --- | --- |
-| `ruleData` | srting | Specifies the Byteman configuration data | Yes |
-| `port` | int | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No |
+| Parameter  | Type   | Description                                                                                                    | Required |
+| ---------- | ------ | -------------------------------------------------------------------------------------------------------------- | -------- |
+| `ruleData` | srting | Specifies the Byteman configuration data                                                                       | Yes      |
+| `port`     | int    | The port ID attached to the Java process agent. The faults are injected into the Java process through this ID. | No       |
 
 When you write the rule configuration file, take into account the specific Java program and the [byteman-rule-language](https://downloads.jboss.org/byteman/4.0.16/byteman-programmers-guide.html#the-byteman-rule-language). For example:
 

@@ -19,7 +19,7 @@ To get the upgrade tools, it is recommended to clone the Chaos Mesh project to y
 tar xvf ./schedule-migration.tar.gz
 ```
 
-The `schedule-migration` tool in this package applies only to the Linux x86_64 platform. If you are using other operating systems or architectures, you need to compile the code by yourselves.
+The `schedule-migration` tool in this package applies only to the Linux x86\_64 platform. If you are using other operating systems or architectures, you need to compile the code by yourselves.
 
 ## Step 1: Export and upgrade an experiment
 

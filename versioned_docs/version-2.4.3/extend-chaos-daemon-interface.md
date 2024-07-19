@@ -189,9 +189,7 @@ To allow Chaos Daemon to accept the requests from Chaos Controller Manager, you 
    ```
 
    :::note
-
    In this chaos experiment, there is no need to recover the chaos action. This is because HelloWorldChaos is a OneShot experiment. For the chaos experiment type you developed, you can implement the logic of the recovery function as needed.
-
    :::
 
 ## Verify the experiment
@@ -274,9 +272,7 @@ To verify the experiment, perform the following steps.
    You can see `ps aux` in two separate lines, which are corresponding to two different Pods.
 
    :::note
-
    If your cluster has multiple nodes, you will find more than one Chaos Daemon Pod. Try to check logs of every Chaos Daemon Pods and find which Pod is being called.
-
    :::
 
 ## Next steps

@@ -106,9 +106,7 @@ We could use [delve](https://github.com/go-delve/delve) with remote debugging to
    ```
 
    :::note
-
    We would set 3 replicas for `chaos-controller-manager` for HA purpose, `--set controllerManager.replicaCount=1` would create 1 instance of `chaos-controller-manager` for easier debugging.
-
    :::
 
 4. Setup Port-Forwarding and Configure IDE To Connect the Remote Debugger
@@ -124,9 +122,7 @@ We could use [delve](https://github.com/go-delve/delve) with remote debugging to
    Then we could access the remote delve debugger server with `127.0.0.1:58000`.
 
    :::note
-
    We always use `8000` in the pod for serving the delve debug server, that's a convention. You could find that in helm templates files.
-
    :::
 
    Then we could configure our favorite IDE to connect to the remote debugger:

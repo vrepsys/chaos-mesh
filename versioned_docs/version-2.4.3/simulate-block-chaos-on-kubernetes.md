@@ -84,9 +84,7 @@ It is recommended to use DKMS or akmod for automatic kernel module compiling or 
    ```
 
    :::note
-
    Only hostpath or localvolume is supported.
-
    :::
 
 2. Use `kubectl` to create an experiment:
@@ -102,10 +100,10 @@ You can find the following magic happened:
 
 The fields in the YAML configuration file are described in the following table:
 
-| Parameter | Type | Note | Default value | Required | Example |
-| --- | --- | --- | --- | --- | --- |
-| `mode` | string | Specifies the mode of the experiment. The mode options include `one` (selecting a random Pod), `all` (selecting all eligible Pods), `fixed` (selecting a specified number of eligible Pods), `fixed-percent` (selecting a specified percentage of Pods from the eligible Pods), and `random-max-percent` (selecting the maximum percentage of Pods from the eligible Pods). | None | Yes | `one` |
-| `value` | string | Provides parameters for the `mode` configuration, depending on `mode`. For example, when `mode` is set to `fixed-percent`, `value` specifies the percentage of Pods. | None | No | `1` |
-| `selector` | struct | Specifies the target Pod. For details, refer to [Define the experiment scope](./define-chaos-experiment-scope.md). | None | Yes |  |
-| `volumeName` | string | Specifies the volume to inject in the target pods. There should be a corresponding entry in the pods' `.spec.volumes`. | None | Yes | `hostpath-example` |
-| delay.latency | string | Specifies the latency of the block device. | None | Yes | `500ms` |
+| Parameter     | Type   | Note                                                                                                                                                                                                                                                                                                                                                                        | Default value | Required | Example            |
+| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | ------------------ |
+| `mode`        | string | Specifies the mode of the experiment. The mode options include `one` (selecting a random Pod), `all` (selecting all eligible Pods), `fixed` (selecting a specified number of eligible Pods), `fixed-percent` (selecting a specified percentage of Pods from the eligible Pods), and `random-max-percent` (selecting the maximum percentage of Pods from the eligible Pods). | None          | Yes      | `one`              |
+| `value`       | string | Provides parameters for the `mode` configuration, depending on `mode`. For example, when `mode` is set to `fixed-percent`, `value` specifies the percentage of Pods.                                                                                                                                                                                                        | None          | No       | `1`                |
+| `selector`    | struct | Specifies the target Pod. For details, refer to [Define the experiment scope](./define-chaos-experiment-scope.md).                                                                                                                                                                                                                                                          | None          | Yes      |                    |
+| `volumeName`  | string | Specifies the volume to inject in the target pods. There should be a corresponding entry in the pods' `.spec.volumes`.                                                                                                                                                                                                                                                      | None          | Yes      | `hostpath-example` |
+| delay.latency | string | Specifies the latency of the block device.                                                                                                                                                                                                                                                                                                                                  | None          | Yes      | `500ms`            |
