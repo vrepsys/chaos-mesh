@@ -27,9 +27,7 @@ title: 检查工作流状态
    ```
 
    :::info 提示
-
    工作流在执行过程中的步骤会以 WorkflowNode 这一 CustomResource 来表示。
-
    :::
 
 3. 执行以下命令来获取指定 WorkflowNode 的详细状态：

@@ -92,6 +92,7 @@ chaosctl logs -t 100 # 输出所有组件的最后100行日志
    ```
 
 2. 执行命令后，把 `ca.crt` 文件和 `ca.key` 文件拷贝到**对应的物理机**上。下文以保存到 `/etc/chaosd/pki` 目录下为例。
+
 3. 然后，在**物理机**上，使用 `chaosctl pm generate` 命令，生成 TLS 证书（证书的默认保存路径为 `/etc/chaosd/pki`）。命令示例如下：
 
    ```bash

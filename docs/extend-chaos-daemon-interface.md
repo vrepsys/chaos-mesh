@@ -6,6 +6,10 @@ import PickHelmVersion from '@site/src/components/PickHelmVersion'
 
 In [Add a new chaos experiment type](add-new-chaos-experiment-type.md), you have added `HelloWorldChaos`, which can print `Hello world!` in the logs of Chaos Controller Manager.
 
+<figure style={{textAlign: 'center'}}>
+  <img src={require("./img/7.png").default} />
+</figure>
+
 To enable the `HelloWorldChaos` to inject some faults into the target Pod, you need to extend Chaos Daemon interface.
 
 :::tip
@@ -158,9 +162,7 @@ To allow Chaos Daemon to accept the requests from Chaos Controller Manager, you 
    ```
 
    :::info
-
    There is no need to recover `HelloWorldChaos` because `HelloWorldChaos` is a **OneShot** experiment. For the type of chaos experiment you develop, you can implement the logic of the recovery function as needed.
-
    :::
 
 ## Verify the output of HelloWorldChaos
@@ -170,15 +172,13 @@ Now you can verify the output of `HelloWorldChaos`:
 1. Build Docker images as we described in [Add a new chaos experiment type](add-new-chaos-experiment-type.md#step-4-build-docker-images), then load them into your cluster.
 
    :::note
-
    If you're using minikube, some versions of minikube cannot overwrite the existing images with the same tag. You may delete the existing images before loading the new ones.
-
    :::
 
 2. Update Chaos Mesh:
 
    <PickHelmVersion>
-   helm upgrade chaos-mesh helm/chaos-mesh -n=chaos-mesh --set controllerManager.leaderElection.enabled=false,dashboard.securityMode=false
+     helm upgrade chaos-mesh helm/chaos-mesh -n=chaos-mesh --set controllerManager.leaderElection.enabled=false,dashboard.securityMode=false
    </PickHelmVersion>
 
 3. Deploy a Pod for testing:

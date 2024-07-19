@@ -74,6 +74,7 @@ Run the following commands to complete the operations:
   ```
 
 - Operation: The command performs the following operations.
+
   - Generate the required certificate for Chaosd simply, and save the certificate to the corresponding physical machine.
   - Create the corresponding `PhysicalMachine` resource in Kubernetes clusters.
 
@@ -92,7 +93,8 @@ Run the following commands to complete the operations:
    ```
 
 2. Copy the `ca.crt` and `ca.key` files to **the corresponding physical machine**. For example, copy the files to the `/etc/chaosd/pki` directory.
-3. Use the `chaosctl pm generate` command to generate TLS certificates (save to `/etc/chaosd/pki by default) on **the physical machine**. For example:
+
+3. Use the `chaosctl pm generate` command to generate TLS certificates (save to \`/etc/chaosd/pki by default) on **the physical machine**. For example:
 
    ```bash
    ./chaosctl pm generate --cacert=/etc/chaosd/pki/ca.crt --cakey=/etc/chaosd/pki/ca.key

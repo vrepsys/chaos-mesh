@@ -34,12 +34,12 @@ It will install the `chaos-mesh` helm chart with the `KUBECONFIG` provided in th
 
 ### Field description
 
-| Parameter | Type | Description | Default value | Required | Example |
-| --- | --- | --- | --- | --- | --- |
-| namespace | string | Represent the namespace to install chaos-mesh components in the remote cluster | None | Yes | chaos-mesh |
-| kubeConfig.secretRef.name | string | The name of the secret, which is used to store the kubeconfig of remote cluster. This kubeconfig will be used to install chaos-mesh components and inject errors | None | Yes | `remote-chaos-mesh.kubeconfig` |
-| kubeConfig.secretRef.namespace | string | The name of the kubeconfig secret. | None | Yes | `default` |
-| kubeConfig.secretRef.key | string | The key of the kubeconfig in the secret. | None | Yes | `kubeconfig` |
+| Parameter                      | Type   | Description                                                                                                                                                      | Default value | Required | Example                        |
+| ------------------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | ------------------------------ |
+| namespace                      | string | Represent the namespace to install chaos-mesh components in the remote cluster                                                                                   | None          | Yes      | chaos-mesh                     |
+| kubeConfig.secretRef.name      | string | The name of the secret, which is used to store the kubeconfig of remote cluster. This kubeconfig will be used to install chaos-mesh components and inject errors | None          | Yes      | `remote-chaos-mesh.kubeconfig` |
+| kubeConfig.secretRef.namespace | string | The name of the kubeconfig secret.                                                                                                                               | None          | Yes      | `default`                      |
+| kubeConfig.secretRef.key       | string | The key of the kubeconfig in the secret.                                                                                                                         | None          | Yes      | `kubeconfig`                   |
 
 ## Inject errors in the remote cluster
 

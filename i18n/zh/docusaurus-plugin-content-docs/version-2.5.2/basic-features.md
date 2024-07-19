@@ -9,6 +9,7 @@ title: 基本功能
 故障注入是混沌实验的核心。Chaos Mesh 充分考虑分布式系统可能出现的故障，提供全面、细粒度的故障类型，分为基础资源类型故障、平台类型故障和应用层故障三大类。
 
 - 基础资源类型故障：
+
   - [PodChaos](simulate-pod-chaos-on-kubernetes.md)：模拟 Pod 故障，例如 Pod 节点重启、Pod 持续不可用，以及特定 Pod 中的某些容器故障。
   - [NetworkChaos](simulate-network-chaos-on-kubernetes.md)：模拟网络故障，例如网络延迟、网络丢包、包乱序、各类网络分区。
   - [DNSChaos](simulate-dns-chaos-on-kubernetes.md)：模拟 DNS 故障，例如 DNS 域名解析失败、返回错误 IP 地址。
@@ -18,9 +19,11 @@ title: 基本功能
   - [TimeChaos](simulate-time-chaos-on-kubernetes.md)：模拟时间跳动异常。
   - [KernelChaos](simulate-kernel-chaos-on-kubernetes.md)：模拟内核故障，例如应用内存分配异常。
 - 平台类型故障：
+
   - [AWSChaos](simulate-aws-chaos.md)：模拟 AWS 平台故障，例如 AWS 节点重启。
   - [GCPChaos](simulate-gcp-chaos.md)：模拟 GCP 平台故障，例如 GCP 节点重启。
 - 应用层故障：
+
   - [JVMChaos](simulate-jvm-application-chaos.md)：模拟 JVM 应用故障，例如函数调用延迟。
 
 ## 混沌实验场景

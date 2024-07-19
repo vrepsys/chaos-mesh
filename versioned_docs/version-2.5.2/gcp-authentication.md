@@ -13,7 +13,7 @@ Create GCP OAuth client and get the Client ID and Client Secret according to [Se
 3. If the APIs & services page was not loaded automatically, open the console left side menu and select "APIs & services" manually.
 4. Click "Credentials" on the left.
 5. Click "New Credentials", then select "OAuth client ID".
-6. Select "Web Application" as the application type, and enter additional information and the redirect URL of Chaos dashboard, which is `ROOT_URL/api/auth/gcp/callback`. In this part, `ROOT_URL` is the root URL of Chaos dashboard, like "http://localhost:2333". This URL can be set through the configuration item `dashboard.rootUrl` by`helm`.
+6. Select "Web Application" as the application type, and enter additional information and the redirect URL of Chaos dashboard, which is `ROOT_URL/api/auth/gcp/callback`. In this part, `ROOT_URL` is the root URL of Chaos dashboard, like "[http://localhost:2333](http://localhost:2333)". This URL can be set through the configuration item `dashboard.rootUrl` by`helm`.
 7. Click "Create Client ID".
 
 After creating the client, remember to save the Client ID and Client Secret for the following steps.

@@ -177,30 +177,30 @@ Workflow 和 Template 字段说明参考[创建 Chaos Mesh 工作流](create-cha
 
 ### StatusCheck 字段说明
 
-| 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
-| --- | --- | --- | --- | --- | --- |
-| mode | `string` | 状态检查的模式，可选值有：`Synchronous`/`Continuous`。 | 无 | 是 | `Synchronous` |
-| type | `string` | 状态检查的类型，可选值有：`HTTP`。 | `HTTP` | 是 | `HTTP` |
-| duration | `string` | 当失败的执行次数小于 `failureThreshold` 时状态检查的持续时间。对于 `Synchronous` 和 `Continuous` 模式的状态检查都适用。 | 无 | 否 | `100s` |
-| timeoutSeconds | `int` | 状态检查单次执行的超时秒数。 | `1` | 否 | `1` |
-| intervalSeconds | `int` | 状态检查的间隔时间（秒）。 | `1` | 否 | `1` |
-| failureThreshold | `int` | 决定状态检查失败的最小连续失败次数。 | `3` | 否 | `3` |
-| successThreshold | `int` | 决定状态检查成功的最小连续成功次数。 | `1` | 否 | `1` |
-| recordsHistoryLimit | `int` | 保存历史执行记录的条数。 | `100` | 否 | `100` |
-| http | `HTTPStatusCheck` | 配置执行 HTTP 请求的具体细节。 | 无 | 否 |  |
+| 参数                  | 类型                | 说明                                                                                   | 默认值    | 是否必填 | 示例            |
+| ------------------- | ----------------- | ------------------------------------------------------------------------------------ | ------ | ---- | ------------- |
+| mode                | `string`          | 状态检查的模式，可选值有：`Synchronous`/`Continuous`。                                             | 无      | 是    | `Synchronous` |
+| type                | `string`          | 状态检查的类型，可选值有：`HTTP`。                                                                 | `HTTP` | 是    | `HTTP`        |
+| duration            | `string`          | 当失败的执行次数小于 `failureThreshold` 时状态检查的持续时间。对于 `Synchronous` 和 `Continuous` 模式的状态检查都适用。 | 无      | 否    | `100s`        |
+| timeoutSeconds      | `int`             | 状态检查单次执行的超时秒数。                                                                       | `1`    | 否    | `1`           |
+| intervalSeconds     | `int`             | 状态检查的间隔时间（秒）。                                                                        | `1`    | 否    | `1`           |
+| failureThreshold    | `int`             | 决定状态检查失败的最小连续失败次数。                                                                   | `3`    | 否    | `3`           |
+| successThreshold    | `int`             | 决定状态检查成功的最小连续成功次数。                                                                   | `1`    | 否    | `1`           |
+| recordsHistoryLimit | `int`             | 保存历史执行记录的条数。                                                                         | `100`  | 否    | `100`         |
+| http                | `HTTPStatusCheck` | 配置执行 HTTP 请求的具体细节。                                                                   | 无      | 否    |               |
 
 ### HTTPStatusCheck 字段说明
 
-| 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
-| --- | --- | --- | --- | --- | --- |
-| url | `string` | HTTP 请求的 URL。 | 无 | 是 | `http://123.123.123.123` |
-| method | `string` | HTTP 请求的方法，可选值有：`GET`/`POST`。 | `GET` | 否 | `GET` |
-| headers | `map[string][]string` | HTTP 请求的请求头。 | 无 | 否 |  |
-| body | `string` | HTTP 请求的请求体。 | 无 | 否 | `{"a":"b"}` |
-| criteria | `HTTPCriteria` | 定义如何判断 HTTP StatusCheck 执行的结果。 | 无 | 是 |  |
+| 参数       | 类型                    | 说明                             | 默认值   | 是否必填 | 示例                       |
+| -------- | --------------------- | ------------------------------ | ----- | ---- | ------------------------ |
+| url      | `string`              | HTTP 请求的 URL。                  | 无     | 是    | `http://123.123.123.123` |
+| method   | `string`              | HTTP 请求的方法，可选值有：`GET`/`POST`。  | `GET` | 否    | `GET`                    |
+| headers  | `map[string][]string` | HTTP 请求的请求头。                   | 无     | 否    |                          |
+| body     | `string`              | HTTP 请求的请求体。                   | 无     | 否    | `{"a":"b"}`              |
+| criteria | `HTTPCriteria`        | 定义如何判断 HTTP StatusCheck 执行的结果。 | 无     | 是    |                          |
 
 ### HTTPCriteria 字段说明
 
-| 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
-| --- | --- | --- | --- | --- | --- |
-| statusCode | `string` | HTTP 请求预期的状态码。取值可以是单一的数字（比如 `200`），或者也可以是一个范围（比如 `200-400`，这里，`200` 和 `400` 都被包括在范围内）。 | 无 | 是 | `200` |
+| 参数         | 类型       | 说明                                                                                     | 默认值 | 是否必填 | 示例    |
+| ---------- | -------- | -------------------------------------------------------------------------------------- | --- | ---- | ----- |
+| statusCode | `string` | HTTP 请求预期的状态码。取值可以是单一的数字（比如 `200`），或者也可以是一个范围（比如 `200-400`，这里，`200` 和 `400` 都被包括在范围内）。 | 无   | 是    | `200` |

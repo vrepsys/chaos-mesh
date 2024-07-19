@@ -89,33 +89,41 @@ kubectl create ns chaos-mesh
 由于不同容器运行时的守护进程所监听的 socket path 不同，你需要在安装时设置适当的值。你可以根据不同的环境来运行以下的安装命令。
 
 <!-- prettier-ignore -->
-<Tabs defaultValue="docker" values={[
+
+<Tabs
+  defaultValue="docker"
+  values={[
   {label: 'Docker', value: 'docker'},
   {label: 'Containerd', value: 'containerd'},
   {label: 'K3s', value: 'k3s'},
   {label: 'MicroK8s', value: 'microk8s'},
   {label: 'CRI-O', value: 'cri-o'}
-]}>
+  ]}
+>
   <TabItem value="docker">
     <PickHelmVersion>
       {`\# Default to /var/run/docker.sock\nhelm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --version latest`}
     </PickHelmVersion>
   </TabItem>
+
   <TabItem value="containerd">
     <PickHelmVersion>
       helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/containerd/containerd.sock --version latest
     </PickHelmVersion>
   </TabItem>
+
   <TabItem value="k3s">
     <PickHelmVersion>
       helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/run/k3s/containerd/containerd.sock --version latest
     </PickHelmVersion>
   </TabItem>
+
   <TabItem value="microk8s">
     <PickHelmVersion>
       helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --set chaosDaemon.runtime=containerd --set chaosDaemon.socketPath=/var/snap/microk8s/common/run/containerd.sock --version latest
     </PickHelmVersion>
   </TabItem>
+
   <TabItem value="cri-o">
     <PickHelmVersion>
       helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --set chaosDaemon.runtime=crio --set chaosDaemon.socketPath=/var/run/crio/crio.sock --version latest
@@ -182,7 +190,7 @@ helm upgrade chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --set dashboard.crea
 目前，Helm 在升级时不会应用最新的 CustomResourceDefinition (CRD)，这可能会导致一些错误的发生。为了避免这种情况，请手动应用最新的 CRD：
 
 <PickVersion>
-curl -sSL https://mirrors.chaos-mesh.org/latest/crd.yaml | kubectl replace -f -
+  curl -sSL [https://mirrors.chaos-mesh.org/latest/crd.yaml](https://mirrors.chaos-mesh.org/latest/crd.yaml) | kubectl replace -f -
 </PickVersion>
 
 :::
@@ -214,7 +222,7 @@ helm install chaos-mesh helm/chaos-mesh -n=chaos-mesh
 安全模式是默认启用的。如需关闭，请在安装或升级时指定 `dashboard.securityMode` 为 `false`：
 
 <PickHelmVersion>
-helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --set dashboard.securityMode=false --version latest
+  helm install chaos-mesh chaos-mesh/chaos-mesh -n=chaos-mesh --set dashboard.securityMode=false --version latest
 </PickHelmVersion>
 
 ### 如何持久化 Chaos Dashboard 数据

@@ -8,7 +8,7 @@ Chaos Mesh Workflow provides a `Task` node to support any workload, which functi
 
 :::note
 
-Chaos Mesh does _NOT_ have the workflow node of the type `HTTPRequest`. This feature is based on `Task` node, and you can send HTTP requests more conveniently by using the feature.
+Chaos Mesh does *NOT* have the workflow node of the type `HTTPRequest`. This feature is based on `Task` node, and you can send HTTP requests more conveniently by using the feature.
 
 :::
 
@@ -47,13 +47,13 @@ Click the "Submit" button to see the task in the preview window:
 
 ## Field description
 
-| Parameter | Type | Description | Default value | Required | Example |
-| --- | --- | --- | --- | --- | --- |
-| Name | string | Name of the workflow node |  | Yes | `send-slack-message` |
-| URL | string | URL of an HTTP request |  | Yes | `https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX` |
-| Method | string | Method of an HTTP request |  | Yes | `POST` |
-| Body | string | Body of an HTTP request |  | No | `{"text": "Hello, world."}` |
-| Follow 301/302 Location | boolean | The value of this parameter corresponds to the `-L` parameter of `curl`. | `false` | No | `false` |
-| Json Content | boolean | The parameter appends `Content-Type: application/json` to the header of an HTTP request. | `false` | No | `false` |
+| Parameter               | Type    | Description                                                                              | Default value | Required | Example                                                                         |
+| ----------------------- | ------- | ---------------------------------------------------------------------------------------- | ------------- | -------- | ------------------------------------------------------------------------------- |
+| Name                    | string  | Name of the workflow node                                                                |               | Yes      | `send-slack-message`                                                            |
+| URL                     | string  | URL of an HTTP request                                                                   |               | Yes      | `https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX` |
+| Method                  | string  | Method of an HTTP request                                                                |               | Yes      | `POST`                                                                          |
+| Body                    | string  | Body of an HTTP request                                                                  |               | No       | `{"text": "Hello, world."}`                                                     |
+| Follow 301/302 Location | boolean | The value of this parameter corresponds to the `-L` parameter of `curl`.                 | `false`       | No       | `false`                                                                         |
+| Json Content            | boolean | The parameter appends `Content-Type: application/json` to the header of an HTTP request. | `false`       | No       | `false`                                                                         |
 
 The value of the `name` field of the generated task node adds the suffix `http-request` to the end of "name".

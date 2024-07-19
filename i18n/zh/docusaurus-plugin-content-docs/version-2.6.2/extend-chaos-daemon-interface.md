@@ -187,9 +187,7 @@ func (obj *HelloWorldChaos) GetSelectorSpecs() map[string]interface{} {
    ```
 
    :::note 注意
-
    在 HelloWorldChaos 中，恢复过程什么都没有做。这是因为 HelloWorldChaos 是一个 OneShot 实验。如果你的新实验需要恢复，你应该在其中实现相关逻辑。
-
    :::
 
 ## 验证实验效果
@@ -274,9 +272,7 @@ func (obj *HelloWorldChaos) GetSelectorSpecs() map[string]interface{} {
      可以看到两条 `ps aux`，对应两个不同的 Pod。
 
      :::note 注意
-
      如果你的集群有多个节点，你会发现有不止一个 Chaos Daemon Pod。试着查看每一个 Chaos Daemon Pod 的日志，寻找真正被调用的那一个。
-
      :::
 
 ## 探索更多

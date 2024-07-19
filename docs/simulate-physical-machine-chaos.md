@@ -9,7 +9,7 @@ This document describes how to create PhysicalMachineChaos (physical machine cha
 You can use PhysicalMachineChaos to simulate the faults of network, disk, pressure, JVM, time, and others in physical or virtual machines. Before using PhysicalMachineChaos provided by Chaos Mesh, you need to deploy Chaosd in your physical or virtual machines. The version mapping between Chaos Mesh and Chaosd is as follows:
 
 | Chaos Mesh version | Chaosd version |
-| :----------------- | :------------- |
+| ------------------ | -------------- |
 | v2.1.x             | v1.1.x         |
 | v2.2.x             | v1.2.x         |
 
@@ -31,9 +31,7 @@ Before creating PhysicalMachineChaos experiments using Chaos Mesh, you need to d
      ```
 
      :::note
-
      The TLS certificates are saved to the default output directory of Chaosctl. If you manually specified another directory when generating certificates, replace the directory in the command line with the corresponding one.
-
      :::
 
 - If the TLS certificate is not generated through Chaosctl, you can run the following command to start Chaosd in service mode. However, for the security of your clusters, this is **not** recommended.
@@ -93,14 +91,14 @@ Before creating PhysicalMachineChaos experiments using Chaos Mesh, you need to d
 
 ### Configuration description
 
-| Configuration item | Type | Description | Default value | Required | Example |
-| :-- | :-- | :-- | :-- | :-- | :-- |
-| `action` | string | Defines the actions of physical machines faults, optional values are as follows: `stress-cpu`, `stress-mem`, `disk-read-payload`, `disk-write-payload`, `disk-fill`, `network-corrupt`, `network-duplicate`, `network-loss`, `network-delay`, `network-partition`, `network-dns`, `process`, `jvm-exception`, `jvm-gc`, `jvm-latency`, `jvm-return`, `jvm-stress`, `jvm-rule-data`, `clock` | None | Yes | `stress-cpu` |
-| `address` | string array | Selects the `address` of Chaosd service to inject faults, only one of `address` or `selector` could be specified | [] | Yes | ["192.168.0.10:31767"] |
-| `selector` | struct | Specifies the target PhysicalMachine. For details, refer to [Define the experiment scope](define-chaos-experiment-scope.md), only one of `address` or `selector` could be specified | None | No |  |
-| `mode` | string | Specifies the mode of the experiment. The mode options include `one` (selecting a random PhysicalMachine), `all` (selecting all eligible PhysicalMachines), `fixed` (selecting a specified number of eligible PhysicalMachines), `fixed-percent` (selecting a specified percentage of PhysicalMachines from the eligible PhysicalMachines), and `random-max-percent` (selecting the maximum percentage of PhysicalMachines from the eligible PhysicalMachines). | None | Yes | `one` |
-| `value` | string | Provides a parameter for the `mode` configuration, depending on `mode`. For example, when `mode` is set to `fixed-percent`, `value` specifies the percentage of PhysicalMachines. | None | No | `1` |
-| `duration` | string | Specifies the duration of experiments | None | Yes | `30s` |
+| Configuration item | Type         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Default value | Required | Example                 |
+| ------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | ----------------------- |
+| `action`           | string       | Defines the actions of physical machines faults, optional values are as follows: `stress-cpu`, `stress-mem`, `disk-read-payload`, `disk-write-payload`, `disk-fill`, `network-corrupt`, `network-duplicate`, `network-loss`, `network-delay`, `network-partition`, `network-dns`, `process`, `jvm-exception`, `jvm-gc`, `jvm-latency`, `jvm-return`, `jvm-stress`, `jvm-rule-data`, `clock`                                                                     | None          | Yes      | `stress-cpu`            |
+| `address`          | string array | Selects the `address` of Chaosd service to inject faults, only one of `address` or `selector` could be specified                                                                                                                                                                                                                                                                                                                                                | \[]           | Yes      | \["192.168.0.10:31767"] |
+| `selector`         | struct       | Specifies the target PhysicalMachine. For details, refer to [Define the experiment scope](define-chaos-experiment-scope.md), only one of `address` or `selector` could be specified                                                                                                                                                                                                                                                                             | None          | No       |                         |
+| `mode`             | string       | Specifies the mode of the experiment. The mode options include `one` (selecting a random PhysicalMachine), `all` (selecting all eligible PhysicalMachines), `fixed` (selecting a specified number of eligible PhysicalMachines), `fixed-percent` (selecting a specified percentage of PhysicalMachines from the eligible PhysicalMachines), and `random-max-percent` (selecting the maximum percentage of PhysicalMachines from the eligible PhysicalMachines). | None          | Yes      | `one`                   |
+| `value`            | string       | Provides a parameter for the `mode` configuration, depending on `mode`. For example, when `mode` is set to `fixed-percent`, `value` specifies the percentage of PhysicalMachines.                                                                                                                                                                                                                                                                               | None          | No       | `1`                     |
+| `duration`         | string       | Specifies the duration of experiments                                                                                                                                                                                                                                                                                                                                                                                                                           | None          | Yes      | `30s`                   |
 
 Each fault action has its own specific configurations. The following section introduces various fault types and their corresponding configuration methods.
 

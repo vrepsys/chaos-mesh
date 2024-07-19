@@ -84,14 +84,14 @@ Global Flags:
 
 #### Configuration description for throwing custom exceptions
 
-| Configuration item | Abbreviation | Description | Value |
-| :-- | :-- | :-- | :-- |
-| `class` | `c` | The name of the Java class | string type, required |
-| `exception` | None | The thrown custom exception | string type, required |
-| method | m | The name of the method | string type, required to be configured |
-| `pid` | None | The Java process ID where the fault is to be injected | int type, required |
-| `port` | None | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| uid | None | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Configuration item | Abbreviation | Description                                                                                                               | Value                                                                                         |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `class`            | `c`          | The name of the Java class                                                                                                | string type, required                                                                         |
+| `exception`        | None         | The thrown custom exception                                                                                               | string type, required                                                                         |
+| method             | m            | The name of the method                                                                                                    | string type, required to be configured                                                        |
+| `pid`              | None         | The Java process ID where the fault is to be injected                                                                     | int type, required                                                                            |
+| `port`             | None         | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`.                                                        |
+| uid                | None         | The experiment ID                                                                                                         | string type. This item is not required to be configured, because Chaosd randomly creates one. |
 
 #### Example for throwing custom exceptions
 
@@ -134,11 +134,11 @@ Global Flags:
 
 #### Configuration description for triggering garbage collection
 
-| Configuration item | Abbreviation | Description | Value |
-| :-- | :-- | :-- | :-- |
-| `pid` | None | The Java process ID where the fault is to be injected | int type, required |
-| `port` | None | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| `uid` | None | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Configuration item | Abbreviation | Description                                                                                                               | Value                                                                                         |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `pid`              | None         | The Java process ID where the fault is to be injected                                                                     | int type, required                                                                            |
+| `port`             | None         | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`.                                                        |
+| `uid`              | None         | The experiment ID                                                                                                         | string type. This item is not required to be configured, because Chaosd randomly creates one. |
 
 #### Example for triggering garbage collection
 
@@ -188,14 +188,14 @@ Global Flags:
 
 #### Configuration description for increasing method latency
 
-| Configuration item | Abbreviation | Description | Value |
-| :-- | :-- | :-- | :-- |
-| `class` | `c` | The name of the Java class | string type, required |
-| `latency` | None | The duration of increasing method latency | int type, required. The unit is milisecond. |
-| `method` | `m` | The name of the method | string type, required |
-| `pid` | None | The Java process ID where the fault is to be injected | int type, required |
-| `port` | None | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| `uid` | None | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Configuration item | Abbreviation | Description                                                                                                               | Value                                                                                         |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `class`            | `c`          | The name of the Java class                                                                                                | string type, required                                                                         |
+| `latency`          | None         | The duration of increasing method latency                                                                                 | int type, required. The unit is milisecond.                                                   |
+| `method`           | `m`          | The name of the method                                                                                                    | string type, required                                                                         |
+| `pid`              | None         | The Java process ID where the fault is to be injected                                                                     | int type, required                                                                            |
+| `port`             | None         | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`.                                                        |
+| `uid`              | None         | The experiment ID                                                                                                         | string type. This item is not required to be configured, because Chaosd randomly creates one. |
 
 #### Example for increasing method latency
 
@@ -242,14 +242,14 @@ Global Flags:
 
 #### Configuration description for modifying return values of a method
 
-| Configuration item | Abbreviation | Description | Value |
-| :-- | :-- | :-- | :-- |
-| class | c | The name of the Java class | string type, required to be configured |
-| method | m | The name of the method | string type, required to be configured |
-| value | None | Specifies the return value of the method | string type, required to be configured. Currently, the item can be numeric and string types. If the item (return value) is string, double quotes are required, like "chaos". |
-| pid | None | The Java process ID where the fault is needed to be injected | int type, required to be configured |
-| port | None | The port number attached to the Java process agent. The faults is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| uid | None | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Configuration item | Abbreviation | Description                                                                                                                | Value                                                                                                                                                                        |
+| ------------------ | ------------ | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| class              | c            | The name of the Java class                                                                                                 | string type, required to be configured                                                                                                                                       |
+| method             | m            | The name of the method                                                                                                     | string type, required to be configured                                                                                                                                       |
+| value              | None         | Specifies the return value of the method                                                                                   | string type, required to be configured. Currently, the item can be numeric and string types. If the item (return value) is string, double quotes are required, like "chaos". |
+| pid                | None         | The Java process ID where the fault is needed to be injected                                                               | int type, required to be configured                                                                                                                                          |
+| port               | None         | The port number attached to the Java process agent. The faults is injected into the Java process through this port number. | int type. The default value is `9288`.                                                                                                                                       |
+| uid                | None         | The experiment ID                                                                                                          | string type. This item is not required to be configured, because Chaosd randomly creates one.                                                                                |
 
 #### Example for simulating the scenario of modifying return values of a method
 
@@ -298,12 +298,12 @@ Global Flags:
 
 #### Configuration description for triggering faults by setting Byteman configuration files
 
-| Configuration item | Abbreviation | Description | Value |
-| :-- | :-- | :-- | :-- |
-| `path` | None | Specifies the path of the Byteman configuration file | string type, required |
-| `pid` | None | The Java process ID where the fault is to be injected | int type, required |
-| `port` | None | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| `uid` | None | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Configuration item | Abbreviation | Description                                                                                                               | Value                                                                                         |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `path`             | None         | Specifies the path of the Byteman configuration file                                                                      | string type, required                                                                         |
+| `pid`              | None         | The Java process ID where the fault is to be injected                                                                     | int type, required                                                                            |
+| `port`             | None         | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`.                                                        |
+| `uid`              | None         | The experiment ID                                                                                                         | string type. This item is not required to be configured, because Chaosd randomly creates one. |
 
 #### Example for triggering faults by setting Byteman configuration files
 
@@ -366,13 +366,13 @@ Global Flags:
 
 #### Configuration description for increasing JVM stress
 
-| Configuration item | Abbreviation | Description | Value |
-| :-- | :-- | :-- | :-- |
-| `cpu-count` | None | The number of CPU cores used for increasing JVM stress | int type. You must configure one item between `cpu-count` and `mem-type`. |
-| `mem-type` | None | The type of OOM | string type. Currently, both 'stack' and 'heap' OOM types are supported. You must configure one item between `cpu-count` and `mem-type`. |
-| `pid` | None | The Java process ID where the fault is to be injected | int type, required |
-| `port` | None | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| `uid` | None | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Configuration item | Abbreviation | Description                                                                                                               | Value                                                                                                                                    |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `cpu-count`        | None         | The number of CPU cores used for increasing JVM stress                                                                    | int type. You must configure one item between `cpu-count` and `mem-type`.                                                                |
+| `mem-type`         | None         | The type of OOM                                                                                                           | string type. Currently, both 'stack' and 'heap' OOM types are supported. You must configure one item between `cpu-count` and `mem-type`. |
+| `pid`              | None         | The Java process ID where the fault is to be injected                                                                     | int type, required                                                                                                                       |
+| `port`             | None         | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`.                                                                                                   |
+| `uid`              | None         | The experiment ID                                                                                                         | string type. This item is not required to be configured, because Chaosd randomly creates one.                                            |
 
 #### Example for increasing JVM stress
 
@@ -416,15 +416,15 @@ When running an experiment, remember to save the UID information of the experime
 
 #### Parameters for throwing custom exceptions
 
-| Parameter | Description | Value |
-| :-- | :-- | :-- |
-| `action` | The action of the experiment | Set to "exception" |
-| `class` | The name of the Java class | string type, required |
-| `exception` | The thrown custom exception | string type, required |
-| `method` | The name of the method | string type, required |
-| `pid` | The Java process ID where the fault is to be injected | int type, required |
-| `port` | The port number attached to the Java process agent. The faults is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| `uid` | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Parameter   | Description                                                                                                                | Value                                                                                         |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `action`    | The action of the experiment                                                                                               | Set to "exception"                                                                            |
+| `class`     | The name of the Java class                                                                                                 | string type, required                                                                         |
+| `exception` | The thrown custom exception                                                                                                | string type, required                                                                         |
+| `method`    | The name of the method                                                                                                     | string type, required                                                                         |
+| `pid`       | The Java process ID where the fault is to be injected                                                                      | int type, required                                                                            |
+| `port`      | The port number attached to the Java process agent. The faults is injected into the Java process through this port number. | int type. The default value is `9288`.                                                        |
+| `uid`       | The experiment ID                                                                                                          | string type. This item is not required to be configured, because Chaosd randomly creates one. |
 
 #### Example for throwing custom exceptions using the service mode
 
@@ -442,12 +442,12 @@ The result is as follows:
 
 #### Parameters for triggering garbage collection
 
-| Parameter | Description | Value |
-| :-- | :-- | :-- |
-| `action` | The action of the experiment | Set to "gc" |
-| `pid` | The Java process ID where the fault is to be injected | int type, required |
-| `port` | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| `uid` | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Parameter | Description                                                                                                               | Value                                                                                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `action`  | The action of the experiment                                                                                              | Set to "gc"                                                                                   |
+| `pid`     | The Java process ID where the fault is to be injected                                                                     | int type, required                                                                            |
+| `port`    | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`.                                                        |
+| `uid`     | The experiment ID                                                                                                         | string type. This item is not required to be configured, because Chaosd randomly creates one. |
 
 #### Example for triggering garbage collection using the service mode
 
@@ -467,15 +467,15 @@ Triggering garbage collection is a one-time operation. The experiment does not r
 
 #### Parameters for increasing method latency
 
-| Parameter | Description | Value |
-| :-- | :-- | :-- |
-| `action` | The action of the experiment | Set to "latency" |
-| `class` | The name of the Java class | string type, required |
-| `latency` | The duration of increasing method latency | int type, required. The unit is milisecond. |
-| `method` | The name of the method | string type, required |
-| `pid` | The Java process ID where the fault is to be injected | int type, required |
-| `port` | The Java process ID where the fault is needed to be injected | int type, required |
-| `uid` | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Parameter | Description                                                  | Value                                                                                         |
+| --------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
+| `action`  | The action of the experiment                                 | Set to "latency"                                                                              |
+| `class`   | The name of the Java class                                   | string type, required                                                                         |
+| `latency` | The duration of increasing method latency                    | int type, required. The unit is milisecond.                                                   |
+| `method`  | The name of the method                                       | string type, required                                                                         |
+| `pid`     | The Java process ID where the fault is to be injected        | int type, required                                                                            |
+| `port`    | The Java process ID where the fault is needed to be injected | int type, required                                                                            |
+| `uid`     | The experiment ID                                            | string type. This item is not required to be configured, because Chaosd randomly creates one. |
 
 #### Example for increasing method latency using the service mode
 
@@ -493,15 +493,15 @@ The result is as follows:
 
 #### Parameters for modifying return values of a method
 
-| Parameter | Description | Value |
-| :-- | :-- | :-- |
-| `action` | The action of the experiment | Set to "return" |
-| `class` | The name of the Java class | string type, required |
-| `method` | The name of the method | string type, required |
-| `value` | Specifies the return value of the method | string type, required. Currently, the item can be numeric and string types. If the item (return value) is string, double quotes are required, like "chaos". |
-| `pid` | The Java process ID where the fault is to be injected | int type, required |
-| `port` | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| `uid` | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Parameter | Description                                                                                                               | Value                                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`  | The action of the experiment                                                                                              | Set to "return"                                                                                                                                             |
+| `class`   | The name of the Java class                                                                                                | string type, required                                                                                                                                       |
+| `method`  | The name of the method                                                                                                    | string type, required                                                                                                                                       |
+| `value`   | Specifies the return value of the method                                                                                  | string type, required. Currently, the item can be numeric and string types. If the item (return value) is string, double quotes are required, like "chaos". |
+| `pid`     | The Java process ID where the fault is to be injected                                                                     | int type, required                                                                                                                                          |
+| `port`    | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`.                                                                                                                      |
+| `uid`     | The experiment ID                                                                                                         | string type. This item is not required to be configured, because Chaosd randomly creates one.                                                               |
 
 #### Example for modifying return values of a method using the service mode
 
@@ -521,13 +521,13 @@ You can set the fault rules according to the Byteman rule configuration. Regardi
 
 #### Parameters for triggering faults by setting Byteman configuration files
 
-| Parameter | Description | Value |
-| :-- | :-- | :-- |
-| `action` | The action of the experiment | Set to "rule-data" |
-| `rule-data` | Specifies the Byteman configuration data | string type, required |
-| `pid` | The Java process ID where the fault is to be injected | int type, required |
-| `port` | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| `uid` | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+| Parameter   | Description                                                                                                               | Value                                                                                         |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `action`    | The action of the experiment                                                                                              | Set to "rule-data"                                                                            |
+| `rule-data` | Specifies the Byteman configuration data                                                                                  | string type, required                                                                         |
+| `pid`       | The Java process ID where the fault is to be injected                                                                     | int type, required                                                                            |
+| `port`      | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`.                                                        |
+| `uid`       | The experiment ID                                                                                                         | string type. This item is not required to be configured, because Chaosd randomly creates one. |
 
 #### Example for triggering faults by setting Byteman configuration files using the service mode
 
@@ -560,14 +560,7 @@ The result is as follows:
 
 #### Parameters for increasing JVM stress
 
-| Parameter | Description | Value |
-| :-- | :-- | :-- | --- |
-| `action` | The action of the experiment | Set to "stress" |
-| `cpu-count` | The number of CPU cores used for increasing CPU stress | int type. You must configure one item between `cpu-count` and `mem-type`. |
-| `mem-type` | The type of OOM | string type. Currently, both 'stack' and 'heap' OOM types are supported. You must configure one item between `cpu-count` and `mem-type`. |
-| `pid` | None | The Java process ID where the fault is to be injected | int type, required |
-| `port` | None | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. |
-| `uid` | None | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
+\| Parameter | Description | Value | | :-- | :-- | :-- | --- | | `action` | The action of the experiment | Set to "stress" | | `cpu-count` | The number of CPU cores used for increasing CPU stress | int type. You must configure one item between `cpu-count` and `mem-type`. | | `mem-type` | The type of OOM | string type. Currently, both 'stack' and 'heap' OOM types are supported. You must configure one item between `cpu-count` and `mem-type`. | | `pid` | None | The Java process ID where the fault is to be injected | int type, required | | `port` | None | The port number attached to the Java process agent. The fault is injected into the Java process through this port number. | int type. The default value is `9288`. | | `uid` | None | The experiment ID | string type. This item is not required to be configured, because Chaosd randomly creates one. |
 
 #### Example for increasing JVM stress using the service mode
 

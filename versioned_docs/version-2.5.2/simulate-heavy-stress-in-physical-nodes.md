@@ -67,11 +67,11 @@ Global Flags:
 
 #### Configuration description for simulating CPU stress
 
-| Configuration item | Abbreviation | Description | Type | Value |
-| :-- | :-- | :-- | :-- | :-- |
-| `load` | l | Specifies the percentage of CPU load per CPU worker. `0` means no CPU utilization, and `100` means full CPU utilization. | int | Range: `0` to `100`; Default value: `10`. |
-| `workers` | w | Specifies the number of workers used to create CPU stress. | int | Default value: 1. |
-| `options` | o | The extended parameter of stress-ng, usually not configured. | string | Default value: "". |
+| Configuration item | Abbreviation | Description                                                                                                              | Type   | Value                                     |
+| ------------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------ | ------ | ----------------------------------------- |
+| `load`             | l            | Specifies the percentage of CPU load per CPU worker. `0` means no CPU utilization, and `100` means full CPU utilization. | int    | Range: `0` to `100`; Default value: `10`. |
+| `workers`          | w            | Specifies the number of workers used to create CPU stress.                                                               | int    | Default value: 1.                         |
+| `options`          | o            | The extended parameter of stress-ng, usually not configured.                                                             | string | Default value: "".                        |
 
 #### Example for simulating CPU stress
 
@@ -116,10 +116,10 @@ Global Flags:
 
 #### Configuration description for simulating memory stress
 
-| Configuration item | Abbreviation | Description | Type | Value |
-| :-- | :-- | :-- | :-- | :-- |
-| `size` | s | Specifies the size of memory per VM worker. | string | The memory size in B, KB/KiB, MB/MiB, GB/GiB, TB/TiB. If the size is not set, all available memory is used by default. |
-| `options` | o | The extended parameter of stress-ng, usually not configured. | string | Default value: "". |
+| Configuration item | Abbreviation | Description                                                  | Type   | Value                                                                                                                  |
+| ------------------ | ------------ | ------------------------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| `size`             | s            | Specifies the size of memory per VM worker.                  | string | The memory size in B, KB/KiB, MB/MiB, GB/GiB, TB/TiB. If the size is not set, all available memory is used by default. |
+| `options`          | o            | The extended parameter of stress-ng, usually not configured. | string | Default value: "".                                                                                                     |
 
 #### Example for simulating memory stress
 
@@ -175,12 +175,12 @@ When running an experiment, remember to save the UID information of the experime
 
 #### Parameters for simulating CPU stress
 
-| Parameter | Description | Type | Value |
-| :-- | :-- | :-- | :-- |
-| `action` | Actions of the experiment |  | Set to "cpu" |
-| `load` | Specifies the percentage of CPU load per CPU worker. `0` means no CPU utilization, and `100` means full CPU utilization. | int | Range: `0` to `100`; Default value: `10` |
-| `workers` | Specifies the number of workers used to create CPU stress | int | Default value: `1` |
-| `options` | The extended parameter of stress-ng, usually not configured. | string | Default value: "" |
+| Parameter | Description                                                                                                              | Type   | Value                                    |
+| --------- | ------------------------------------------------------------------------------------------------------------------------ | ------ | ---------------------------------------- |
+| `action`  | Actions of the experiment                                                                                                |        | Set to "cpu"                             |
+| `load`    | Specifies the percentage of CPU load per CPU worker. `0` means no CPU utilization, and `100` means full CPU utilization. | int    | Range: `0` to `100`; Default value: `10` |
+| `workers` | Specifies the number of workers used to create CPU stress                                                                | int    | Default value: `1`                       |
+| `options` | The extended parameter of stress-ng, usually not configured.                                                             | string | Default value: ""                        |
 
 #### Example for simulating CPU stress using the service mode
 
@@ -198,11 +198,11 @@ The result is as follows:
 
 #### Parameters for simulating memory stress
 
-| Parameter | Description | Type | Value |
-| :-- | :-- | :-- | :-- |
-| `action` | Actions of the experiment |  | Set to "mem" |
-| `size` | Specifies the size of memory per VM worker | string | the memory size in B, KB/KiB, MB/MiB, GB/GiB, TB/TiB. If the size is not set, all available memory is used by default. |
-| `options` | The extended parameter of stress-ng, usually not configured. | string | Default value: "" |
+| Parameter | Description                                                  | Type   | Value                                                                                                                  |
+| --------- | ------------------------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| `action`  | Actions of the experiment                                    |        | Set to "mem"                                                                                                           |
+| `size`    | Specifies the size of memory per VM worker                   | string | the memory size in B, KB/KiB, MB/MiB, GB/GiB, TB/TiB. If the size is not set, all available memory is used by default. |
+| `options` | The extended parameter of stress-ng, usually not configured. | string | Default value: ""                                                                                                      |
 
 #### Example for simulating memory stress using the service mode
 

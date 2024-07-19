@@ -14,7 +14,7 @@ You can create experiments using either Chaos Dashboard or the YAML configuratio
 
    ![Create Experiment](./img/create-new-exp.png)
 
-2. In the **Choose a Target** area, choose **STRESS TEST** and fill out the experiment information. For specific configuration fields, refer to the description in [Configuration Description](#fields description).
+2. In the **Choose a Target** area, choose **STRESS TEST** and fill out the experiment information. For specific configuration fields, refer to the description in \[Configuration Description]\(#fields description).
 
    ![StressChaos Experiment](./img/stresschaos-exp.png)
 
@@ -57,15 +57,15 @@ You can create experiments using either Chaos Dashboard or the YAML configuratio
 
 The fields in the YAML configuration file are described in the following table:
 
-| Parameter | Type | Description | Default value | Required | Example |
-| --- | --- | --- | --- | --- | --- |
-| duration | string | Specifies the duration of the experiment. | None | Yes | `30s` |
-| stressors | [Stressors](#stressors) | Specifies the stress of CPU or memory | None | No |  |
-| stressngStressors | string | Specifies the stres-ng parameter to reach richer stress injection | None | No | `--clone 2` |
-| mode | string | Specifies the mode of the experiment. The mode options include `one` (selecting a random Pod), `all` (selecting all eligible Pods), `fixed` (selecting a specified number of eligible Pods), `fixed-percent` (selecting a specified percentage of Pods from the eligible Pods), and `random-max-percent` (selecting the maximum percentage of Pods from the eligible Pods). | None | Yes | `one` |
-| value | string | Provides a parameter for the `mode` configuration, depending on `mode`.For example, when `mode` is set to `fixed-percent`, `value` specifies the percentage of Pods. | None | No | 1 |
-| containerNames | []string | Specifies the name of the container into which the fault is injected. | None | No | `["nginx"]` |
-| selector | struct | Specifies the target Pod. For details, refer to [Define the Scope of Chaos Experiments](./define-chaos-experiment-scope.md). | None | Yes |  |
+| Parameter         | Type                    | Description                                                                                                                                                                                                                                                                                                                                                                 | Default value | Required | Example     |
+| ----------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | ----------- |
+| duration          | string                  | Specifies the duration of the experiment.                                                                                                                                                                                                                                                                                                                                   | None          | Yes      | `30s`       |
+| stressors         | [Stressors](#stressors) | Specifies the stress of CPU or memory                                                                                                                                                                                                                                                                                                                                       | None          | No       |             |
+| stressngStressors | string                  | Specifies the stres-ng parameter to reach richer stress injection                                                                                                                                                                                                                                                                                                           | None          | No       | `--clone 2` |
+| mode              | string                  | Specifies the mode of the experiment. The mode options include `one` (selecting a random Pod), `all` (selecting all eligible Pods), `fixed` (selecting a specified number of eligible Pods), `fixed-percent` (selecting a specified percentage of Pods from the eligible Pods), and `random-max-percent` (selecting the maximum percentage of Pods from the eligible Pods). | None          | Yes      | `one`       |
+| value             | string                  | Provides a parameter for the `mode` configuration, depending on `mode`.For example, when `mode` is set to `fixed-percent`, `value` specifies the percentage of Pods.                                                                                                                                                                                                        | None          | No       | 1           |
+| containerNames    | \[]string               | Specifies the name of the container into which the fault is injected.                                                                                                                                                                                                                                                                                                       | None          | No       | `["nginx"]` |
+| selector          | struct                  | Specifies the target Pod. For details, refer to [Define the Scope of Chaos Experiments](./define-chaos-experiment-scope.md).                                                                                                                                                                                                                                                | None          | Yes      |             |
 
 #### Stressors
 
@@ -76,12 +76,12 @@ The fields in the YAML configuration file are described in the following table:
 
 ##### MemoryStressor
 
-| Parameter | Type | Description | Default value | Required | Example |
-| --- | --- | --- | --- | --- | --- |
-| workers | int | Specifies the number of threads that apply memory stress |  | No | `1` |
-| size | string | Specifies the memory size to be occupied or a percentage of the total memory size. The final sum of the occupied memory size is `size`. |  | No | `256MB / 25%` |
-| time | string | Specifies the time to reach the memory `size`. The growth model is a linear model. |  | No | `10min` |
-| oomScoreAdj | int | Specifies the [oom_score_adj](https://man7.org/linux/man-pages/man5/proc.5.html) of the stress process. |  | No | `-1000` |
+| Parameter   | Type   | Description                                                                                                                             | Default value | Required | Example       |
+| ----------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | ------------- |
+| workers     | int    | Specifies the number of threads that apply memory stress                                                                                |               | No       | `1`           |
+| size        | string | Specifies the memory size to be occupied or a percentage of the total memory size. The final sum of the occupied memory size is `size`. |               | No       | `256MB / 25%` |
+| time        | string | Specifies the time to reach the memory `size`. The growth model is a linear model.                                                      |               | No       | `10min`       |
+| oomScoreAdj | int    | Specifies the [oom\_score\_adj](https://man7.org/linux/man-pages/man5/proc.5.html) of the stress process.                               |               | No       | `-1000`       |
 
 :::note
 
@@ -91,7 +91,7 @@ To avoid the high CPU load caused by the read and write pressure from `stress-ng
 
 ##### CPUStressor
 
-| Parameter | Type | Description | Default value | Required | Example |
-| --- | --- | --- | --- | --- | --- |
-| workers | int | Specifies the number of threads that apply CPU stress |  | Yes | `1` |
-| load | int | Specifies the percentage of CPU occupied. `0` means that no additional CPU is added, and `100` refers to full load. The final sum of CPU load is `workers * load`. |  | No | `50` |
+| Parameter | Type | Description                                                                                                                                                        | Default value | Required | Example |
+| --------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | -------- | ------- |
+| workers   | int  | Specifies the number of threads that apply CPU stress                                                                                                              |               | Yes      | `1`     |
+| load      | int  | Specifies the percentage of CPU occupied. `0` means that no additional CPU is added, and `100` refers to full load. The final sum of CPU load is `workers * load`. |               | No       | `50`    |

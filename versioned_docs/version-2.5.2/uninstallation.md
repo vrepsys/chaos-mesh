@@ -86,22 +86,27 @@ Then delete their corresponding `Service`s:
 There are several RBAC objects as Chaos Mesh installed:
 
 - ClusterRoleBinding
+
   - chaos-mesh-playground-chaos-controller-manager-cluster-level
   - chaos-mesh-playground-chaos-controller-manager-target-namespace
   - chaos-mesh-playground-chaos-dns-server-cluster-level
   - chaos-mesh-playground-chaos-dns-server-target-namespace
 - ClusterRole
+
   - chaos-mesh-playground-chaos-controller-manager-cluster-level
   - chaos-mesh-playground-chaos-controller-manager-target-namespace
   - chaos-mesh-playground-chaos-dns-server
   - chaos-mesh-playground-chaos-dns-server-cluster-level
 - RoleBinding
+
   - chaos-mesh-playground-chaos-controller-manager-control-plane
   - chaos-mesh-playground-chaos-dns-server-control-plane
 - Role
+
   - chaos-mesh-playground-chaos-controller-manager-control-plane
   - chaos-mesh-playground-chaos-dns-server-control-plane
 - ServiceAccount
+
   - chaos-controller-manager
   - chaos-daemon
   - chaos-dns-server
@@ -113,9 +118,11 @@ You should remove these RBAC objects.
 There are several ConfigMaps and Secrets as Chaos Mesh installed:
 
 - ConfigMap
+
   - chaos-mesh
   - dns-server-config
 - Secret
+
   - chaos-mesh-webhook-certs
 
 You should remove these ConfigMaps And Secrets objects.
@@ -125,9 +132,11 @@ You should remove these ConfigMaps And Secrets objects.
 There are several Webhooks as Chaos Mesh installed:
 
 - ValidatingWebhookConfigurations
+
   - chaos-mesh-validation
   - chaos-mesh-validate-auth
 - MutatingWebhookConfigurations
+
   - chaos-mesh-mutation
 
 You should remove these webhooks.

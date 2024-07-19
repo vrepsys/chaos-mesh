@@ -201,7 +201,7 @@ While setting selectors, you can also view the actual scope of the experiment ta
 ## Compatibility matrix
 
 | Type                           | Support Kubernetes | Support physical machine |
-| :----------------------------- | :----------------- | :----------------------- |
+| ------------------------------ | ------------------ | ------------------------ |
 | Namespace Selectors            | Yes                | Yes                      |
 | Label Selectors                | Yes                | Yes                      |
 | Expression Selectors           | Yes                | Yes                      |

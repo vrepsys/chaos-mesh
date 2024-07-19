@@ -69,6 +69,7 @@ Things happened during "Code Freeze":
 
 - blocking the merging of all unrelated PRs
 - reviewing "new features/enhancements" would be carried with the next release
+
   - finish or prune the unfinished features
   - the documents are ready, at least have a related open issue on chaos-mesh/website
 - cutting branch `release-X.Y`

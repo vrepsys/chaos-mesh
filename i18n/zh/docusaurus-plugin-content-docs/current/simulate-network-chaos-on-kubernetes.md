@@ -15,7 +15,7 @@ NetworkChaos 用于模拟集群中网络故障的场景，目前支持以下几�
 ## 注意事项
 
 1. 请在进行网络注入的过程中保证 Controller Manager 与 Chaos Daemon 之间的连接通畅，否则将无法恢复。
-2. 如果使用 Net Emulation 功能，请确保 Linux 内核拥有 NET_SCH_NETEM 模块。对于 CentOS 可以通过 kernel-modules-extra 包安装，大部分其他发行版已默认安装相应模块。
+2. 如果使用 Net Emulation 功能，请确保 Linux 内核拥有 NET\_SCH\_NETEM 模块。对于 CentOS 可以通过 kernel-modules-extra 包安装，大部分其他发行版已默认安装相应模块。
 
 ## 使用 Dashboard 方式创建实验
 
@@ -136,36 +136,36 @@ NetworkChaos 用于模拟集群中网络故障的场景，目前支持以下几�
 
 ### 字段说明
 
-| 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
-| --- | --- | --- | --- | --- | --- |
-| action | string | 表示具体的故障类型。netem，delay，loss，duplicate，corrupt 对应 net emulation 类型；partition 表示网络分区；bandwidth 表示限制带宽 | 无 | 是 | partition |
-| target | Selector | 与 direction 组合使用，使得 Chaos 只对部分包生效 | 无 | 否 |  |
-| direction | enum | 值为 `from`，`to` 或 `both`。用于指定选出“来自 target 的包”，“发往 target 的包”，或者“全部选中” | to | 否 | both |
-| mode | string | 指定实验的运行方式，可选择的方式包括：`one`（表示随机选出一个符合条件的 Pod）、`all`（表示选出所有符合条件的 Pod）、`fixed`（表示选出指定数量且符合条件的 Pod）、`fixed-percent`（表示选出占符合条件的 Pod 中指定百分比的 Pod）、`random-max-percent`（表示选出占符合条件的 Pod 中不超过指定百分比的 Pod） | 无 | 是 | `one` |
-| value | string | 取决与 `mode` 的配置，为 `mode` 提供对应的参数。例如，当你将 `mode` 配置为 `fixed-percent` 时，`value` 用于指定 Pod 的百分比 | 无 | 否 | 1 |
-| selector | struct | 指定注入故障的目标 Pod，详情请参考[定义实验范围](./define-chaos-experiment-scope.md) | 无 | 是 |  |
-| externalTargets | []string | 表示 Kubernetes 之外的网络目标, 可以是 IPv4 地址或者域名。只能与 `direction: to` 一起工作。 | 无 | 否 | 1.1.1.1, www.google.com |
-| device | string | 指定影响的网络设备 | 无 | 否 | "eth0" |
+| 参数              | 类型        | 说明                                                                                                                                                                                             | 默认值 | 是否必填 | 示例                                               |
+| --------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ---- | ------------------------------------------------ |
+| action          | string    | 表示具体的故障类型。netem，delay，loss，duplicate，corrupt 对应 net emulation 类型；partition 表示网络分区；bandwidth 表示限制带宽                                                                                             | 无   | 是    | partition                                        |
+| target          | Selector  | 与 direction 组合使用，使得 Chaos 只对部分包生效                                                                                                                                                              | 无   | 否    |                                                  |
+| direction       | enum      | 值为 `from`，`to` 或 `both`。用于指定选出“来自 target 的包”，“发往 target 的包”，或者“全部选中”                                                                                                                           | to  | 否    | both                                             |
+| mode            | string    | 指定实验的运行方式，可选择的方式包括：`one`（表示随机选出一个符合条件的 Pod）、`all`（表示选出所有符合条件的 Pod）、`fixed`（表示选出指定数量且符合条件的 Pod）、`fixed-percent`（表示选出占符合条件的 Pod 中指定百分比的 Pod）、`random-max-percent`（表示选出占符合条件的 Pod 中不超过指定百分比的 Pod） | 无   | 是    | `one`                                            |
+| value           | string    | 取决与 `mode` 的配置，为 `mode` 提供对应的参数。例如，当你将 `mode` 配置为 `fixed-percent` 时，`value` 用于指定 Pod 的百分比                                                                                                      | 无   | 否    | 1                                                |
+| selector        | struct    | 指定注入故障的目标 Pod，详情请参考[定义实验范围](./define-chaos-experiment-scope.md)                                                                                                                                | 无   | 是    |                                                  |
+| externalTargets | \[]string | 表示 Kubernetes 之外的网络目标, 可以是 IPv4 地址或者域名。只能与 `direction: to` 一起工作。                                                                                                                               | 无   | 否    | 1.1.1.1, [www.google.com](http://www.google.com) |
+| device          | string    | 指定影响的网络设备                                                                                                                                                                                      | 无   | 否    | "eth0"                                           |
 
 针对不同的 `action`，还有不同的配置项可以填写。
 
 #### Net Emulation
 
-| 参数      | 类型                    | 说明                     | 是否必填 |
-| --------- | ----------------------- | ------------------------ | -------- |
-| delay     | [Delay](#Delay)         | 描述网络的延迟状态       | 否       |
-| loss      | [Loss](#Loss)           | 描述网络的丢包状态       | 否       |
-| duplicate | [Duplicate](#Duplicate) | 描述网络重复包的状态     | 否       |
-| corrupt   | [Corrupt](#Corrupt)     | 描述网络包出现错误的状态 | 否       |
+| 参数        | 类型                      | 说明           | 是否必填 |
+| --------- | ----------------------- | ------------ | ---- |
+| delay     | [Delay](#Delay)         | 描述网络的延迟状态    | 否    |
+| loss      | [Loss](#Loss)           | 描述网络的丢包状态    | 否    |
+| duplicate | [Duplicate](#Duplicate) | 描述网络重复包的状态   | 否    |
+| corrupt   | [Corrupt](#Corrupt)     | 描述网络包出现错误的状态 | 否    |
 
 ##### Delay
 
-| 参数 | 类型 | 说明 | 默认值 | 是否必填 | 示例 |
-| --- | --- | --- | --- | --- | --- |
-| latency | string | 表示延迟的时间长度 | 0 | 否 | 2ms |
-| correlation | string | 表示延迟时间的时间长度与前一次延迟时长的相关性。取值范围：[0, 100] | 0 | 否 | 50 |
-| jitter | string | 表示延迟时间的变化范围 | 0 | 否 | 1ms |
-| reorder | Reorder(#Reorder) | 表示网络包乱序的状态 |  | 否 |  |
+| 参数          | 类型                | 说明                                     | 默认值 | 是否必填 | 示例  |
+| ----------- | ----------------- | -------------------------------------- | --- | ---- | --- |
+| latency     | string            | 表示延迟的时间长度                              | 0   | 否    | 2ms |
+| correlation | string            | 表示延迟时间的时间长度与前一次延迟时长的相关性。取值范围：\[0, 100] | 0   | 否    | 50  |
+| jitter      | string            | 表示延迟时间的变化范围                            | 0   | 否    | 1ms |
+| reorder     | Reorder(#Reorder) | 表示网络包乱序的状态                             |     | 否    |     |
 
 `correlation` 的计算模型如下：
 
@@ -187,43 +187,43 @@ NetworkChaos 用于模拟集群中网络故障的场景，目前支持以下几�
 
 ##### Reorder
 
-| 参数        | 类型   | 说明                                                       | 默认值 | 是否必填 | 示例 |
-| ----------- | ------ | ---------------------------------------------------------- | ------ | -------- | ---- |
-| reorder     | string | 表示发生重新排序的概率。取值范围：[0, 100]                 | 0      | 否       | 50   |
-| correlation | string | 表示发生重新排序的概率与前一次的相关性。取值范围：[0, 100] | 0      | 否       | 50   |
-| gap         | int    | 表示乱序将包推后的距离                                     | 0      | 否       | 5    |
+| 参数          | 类型     | 说明                                 | 默认值 | 是否必填 | 示例 |
+| ----------- | ------ | ---------------------------------- | --- | ---- | -- |
+| reorder     | string | 表示发生重新排序的概率。取值范围：\[0, 100]         | 0   | 否    | 50 |
+| correlation | string | 表示发生重新排序的概率与前一次的相关性。取值范围：\[0, 100] | 0   | 否    | 50 |
+| gap         | int    | 表示乱序将包推后的距离                        | 0   | 否    | 5  |
 
 ##### Loss
 
-| 参数        | 类型   | 说明                                                           | 默认值 | 是否必填 | 示例 |
-| ----------- | ------ | -------------------------------------------------------------- | ------ | -------- | ---- |
-| loss        | string | 表示丢包发生的概率。取值范围：[0, 100]                         | 0      | 否       | 50   |
-| correlation | string | 表示丢包发生的概率与前一次是否发生的相关性。取值范围：[0, 100] | 0      | 否       | 50   |
+| 参数          | 类型     | 说明                                   | 默认值 | 是否必填 | 示例 |
+| ----------- | ------ | ------------------------------------ | --- | ---- | -- |
+| loss        | string | 表示丢包发生的概率。取值范围：\[0, 100]             | 0   | 否    | 50 |
+| correlation | string | 表示丢包发生的概率与前一次是否发生的相关性。取值范围：\[0, 100] | 0   | 否    | 50 |
 
 ##### Duplicate
 
-| 参数        | 类型   | 说明                                                             | 默认值 | 是否必填 | 示例 |
-| ----------- | ------ | ---------------------------------------------------------------- | ------ | -------- | ---- |
-| duplicate   | string | 表示包重复发生的概率。取值范围：[0, 100]                         | 0      | 否       | 50   |
-| correlation | string | 表示包重复发生的概率与前一次是否发生的相关性。取值范围：[0, 100] | 0      | 否       | 50   |
+| 参数          | 类型     | 说明                                    | 默认值 | 是否必填 | 示例 |
+| ----------- | ------ | ------------------------------------- | --- | ---- | -- |
+| duplicate   | string | 表示包重复发生的概率。取值范围：\[0, 100]             | 0   | 否    | 50 |
+| correlation | string | 表示包重复发生的概率与前一次是否发生的相关性。取值范围：\[0, 100] | 0   | 否    | 50 |
 
 ##### Corrupt
 
-| 参数        | 类型   | 说明                                                             | 默认值 | 是否必填 | 示例 |
-| ----------- | ------ | ---------------------------------------------------------------- | ------ | -------- | ---- |
-| corrupt     | string | 表示包错误发生的概率。取值范围：[0, 100]                         | 0      | 否       | 50   |
-| correlation | string | 表示包错误发生的概率与前一次是否发生的相关性。取值范围：[0, 100] | 0      | 否       | 50   |
+| 参数          | 类型     | 说明                                    | 默认值 | 是否必填 | 示例 |
+| ----------- | ------ | ------------------------------------- | --- | ---- | -- |
+| corrupt     | string | 表示包错误发生的概率。取值范围：\[0, 100]             | 0   | 否    | 50 |
+| correlation | string | 表示包错误发生的概率与前一次是否发生的相关性。取值范围：\[0, 100] | 0   | 否    | 50 |
 
 对于 `reorder`，`loss`，`duplicate`，`corrupt` 这些偶发事件，`correlation` 则更为复杂。具体模型描述参考 [NetemCLG](http://web.archive.org/web/20200120162102/http://netgroup.uniroma2.it/twiki/bin/view.cgi/Main/NetemCLG) 。
 
 #### Bandwidth
 
-| 参数     | 类型   | 说明                     | 默认值 | 是否必填 | 示例  |
-| -------- | ------ | ------------------------ | ------ | -------- | ----- |
-| rate     | string | 表示带宽限制的速率       |        | 是       | 1mbps |
-| limit    | uint32 | 表示在队列中等待的字节数 |        | 是       | 1     |
-| buffer   | uint32 | 能够瞬间发送的最大字节数 |        | 是       | 1     |
-| peakrate | uint64 | `bucket` 的最大消耗率    |        | 否       | 1     |
-| minburst | uint32 | `peakrate bucket` 的大小 |        | 否       | 1     |
+| 参数       | 类型     | 说明                    | 默认值 | 是否必填 | 示例    |
+| -------- | ------ | --------------------- | --- | ---- | ----- |
+| rate     | string | 表示带宽限制的速率             |     | 是    | 1mbps |
+| limit    | uint32 | 表示在队列中等待的字节数          |     | 是    | 1     |
+| buffer   | uint32 | 能够瞬间发送的最大字节数          |     | 是    | 1     |
+| peakrate | uint64 | `bucket` 的最大消耗率       |     | 否    | 1     |
+| minburst | uint32 | `peakrate bucket` 的大小 |     | 否    | 1     |
 
 其中 `peakrate` 和 `minburst` 通常情况下不需要设置。如果需要进一步了解这些字段的含义，可以参考 [tc-tbf 文档](https://man7.org/linux/man-pages/man8/tc-tbf.8.html).`limit` 建议至少设置为 `2 * rate * latency`，其中 `latency` 为发送者到目标的延迟，可以通过 `ping` 命令估算。过小的 limit 会造成高丢包率，从而影响 TCP 连接的吞吐。

@@ -32,8 +32,8 @@ stringData:
 
 - **name** means the Kubernetes Secret object.
 - **namespace** means the namespace of the Kubernetes Secret object.
-- **aws_access_key_id** stores the ID of the access key to the AWS cluster.
-- **aws_secret_access_key** stores the secrete access key to the AWS cluster.
+- **aws\_access\_key\_id** stores the ID of the access key to the AWS cluster.
+- **aws\_secret\_access\_key** stores the secrete access key to the AWS cluster.
 
 ## Create experiments using Chaos Dashboard
 
@@ -153,14 +153,14 @@ Before you create an experiment using Chaos Dashboard, make sure the following r
 
 The following table shows the fields in the YAML configuration file.
 
-| Parameter | Type | Description | Default value | Required | Example |
-| --- | --- | --- | --- | --- | --- |
-| action | string | Indicates the specific type of faults. Only ec2-stop, ec2-restore, and detain-volume are supported. | ec2-stop | Yes | ec2-stop |
-| mode | string | Specifies the mode of the experiment. The mode options include `one` (selecting a random Pod), `all` (selecting all eligible Pods), `fixed` (selecting a specified number of eligible Pods), `fixed-percent` (selecting a specified percentage of Pods from the eligible Pods), and `random-max-percent` (selecting the maximum percentage of Pods from the eligible Pods). | None | Yes | `one` |
-| value | string | Provides parameters for the `mode` configuration, depending on `mode`.For example, when `mode` is set to `fixed-percent`, `value` specifies the percentage of Pods. | None | No | 1 |
-| secretName | string | Specifies the name of the Kubernetes Secret that stores the AWS authentication information. | None | No | cloud-key-secret |
-| awsRegion | string | Specifies the AWS region. | None | Yes | us-east-2 |
-| ec2Instance | string | Specifies the ID of the EC2 instance. | None | Yes | your-ec2-instance-id |
-| volumeID | string | This is a required field when the `action` is `detach-volume`. This field specifies the EBS volume ID. | None | No | your-volume-id |
-| deviceName | string | This is a required field when the `action` is `detach-volume`. This field specifies the machine name. | None | No | /dev/sdf |
-| duration | string | Specifies the duration of the experiment. | None | Yes | 30s |
+| Parameter   | Type   | Description                                                                                                                                                                                                                                                                                                                                                                 | Default value | Required | Example              |
+| ----------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | -------------------- |
+| action      | string | Indicates the specific type of faults. Only ec2-stop, ec2-restore, and detain-volume are supported.                                                                                                                                                                                                                                                                         | ec2-stop      | Yes      | ec2-stop             |
+| mode        | string | Specifies the mode of the experiment. The mode options include `one` (selecting a random Pod), `all` (selecting all eligible Pods), `fixed` (selecting a specified number of eligible Pods), `fixed-percent` (selecting a specified percentage of Pods from the eligible Pods), and `random-max-percent` (selecting the maximum percentage of Pods from the eligible Pods). | None          | Yes      | `one`                |
+| value       | string | Provides parameters for the `mode` configuration, depending on `mode`.For example, when `mode` is set to `fixed-percent`, `value` specifies the percentage of Pods.                                                                                                                                                                                                         | None          | No       | 1                    |
+| secretName  | string | Specifies the name of the Kubernetes Secret that stores the AWS authentication information.                                                                                                                                                                                                                                                                                 | None          | No       | cloud-key-secret     |
+| awsRegion   | string | Specifies the AWS region.                                                                                                                                                                                                                                                                                                                                                   | None          | Yes      | us-east-2            |
+| ec2Instance | string | Specifies the ID of the EC2 instance.                                                                                                                                                                                                                                                                                                                                       | None          | Yes      | your-ec2-instance-id |
+| volumeID    | string | This is a required field when the `action` is `detach-volume`. This field specifies the EBS volume ID.                                                                                                                                                                                                                                                                      | None          | No       | your-volume-id       |
+| deviceName  | string | This is a required field when the `action` is `detach-volume`. This field specifies the machine name.                                                                                                                                                                                                                                                                       | None          | No       | /dev/sdf             |
+| duration    | string | Specifies the duration of the experiment.                                                                                                                                                                                                                                                                                                                                   | None          | Yes      | 30s                  |

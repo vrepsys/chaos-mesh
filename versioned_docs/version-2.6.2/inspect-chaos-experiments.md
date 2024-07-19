@@ -95,9 +95,7 @@ The above output contains two parts:
   - When `Paused` is `True`, it indicates the current chaos experiment is paused. However, if the `Selected` is `False` at the same time, then it means the current experiment cannot select the target pods where to inject chaos actions.
 
   :::note
-
   You can get more information from the combination of the above status records, for example, when `Paused` is `True`, it indicates the experiment is paused, but if the `Selected` is `False` at the same time, then it means the current experiment cannot select the target pods where to inject chaos actions.
-
   :::
 
 - `Events`
